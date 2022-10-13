@@ -23,7 +23,7 @@ namespace WebAPI.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            string query = @"select langId, langName, descLang, flagLang from dbo.languageDB";
+            string query = @"select langId, langName, langDesc, langFlag from languages";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("LanguageAppCon");
             SqlDataReader myReader;

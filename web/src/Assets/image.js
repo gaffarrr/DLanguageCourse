@@ -1,0 +1,6 @@
+export const Insta = require('./Landing/ig.png')
+export const Email = require('./Landing/email.png')
+export const Background = require('./Landing/bgLanding.png')
+export const Phone = require('./Landing/phone.png')
+export const Youtube = require('./Landing/yt.png')
+export const Telegram = require('./Landing/tele.png')

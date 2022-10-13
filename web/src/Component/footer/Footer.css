@@ -1,0 +1,29 @@
+.par {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: justify;
+}
+
+.divUl ul {
+    padding-left: 20px;
+    columns: 2;
+    column-gap: 60px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: left;
+}
+
+.divImg {
+    margin-top: 8px;
+    text-align: left;
+
+}
+
+.divImg button {
+    background-color: transparent;
+    border-color: transparent;
+}
