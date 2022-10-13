@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RtPn4hGY818vPzTLSVMfy0izxuulGhyoqZPAmgl7gjjdxvlNHUcZGNUgJ4uZXi/320SOgq/TkVLPV8f2ipHTsg==",
+  "dgSpecHash": "zt6q7H+e8b0T/xCT7jp2H27vRPVe7ybj2qKfvsVJn4f5MpYbgkBM+3TGefZkeU1itzuoXDzWKTitDAAgR3sBSA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\source\\api\\WebAPI\\WebAPI\\WebAPI.csproj",
+  "projectFilePath": "D:\\NawaData\\DLanguage\\WebAPI\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.17\\microsoft.aspnetcore.jsonpatch.5.0.17.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\5.0.17\\microsoft.aspnetcore.mvc.newtonsoftjson.5.0.17.nupkg.sha512",

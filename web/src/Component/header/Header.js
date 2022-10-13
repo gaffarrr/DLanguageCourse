@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../../Assets/logo.png'
+import logo from '../../Assets/Landing/logo.png'
 import { AppBar } from '@mui/material'
 import './Header.css'
 import Box from '@mui/material/Box'
@@ -10,17 +10,13 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import '@fontsource/montserrat'
 import { borderRadius } from '@mui/system'
+import shadows from '@mui/material/styles/shadows'
 
 const Header = () => {
     return (
-        // <div>
-        //     <AppBar className='AppBar' position='static'>
-        //         <img src={logo} className="logo" alt="logo" />
-        //         <a>Language</a>
-        //     </AppBar>
-        // </div>
+
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" sx={{ bgcolor: 'white' }}>
+            <AppBar position="static" elevation={0} sx={{ bgcolor: 'white' }}>
                 <Toolbar className='Toolbar'>
                     <IconButton
                         size="large"
