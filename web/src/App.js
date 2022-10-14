@@ -30,6 +30,9 @@ function App() {
           <Route path='/InvoiceConfirmation' element={<InvoiceConfirmation></InvoiceConfirmation>}></Route>
           <Route path='/register' element={<Register></Register>}></Route>
           {/*<Route path='/login' element={<Login/>}></Route> **/}
+          {/*<Route path='/cart' element={<Cart/>}></Route> **/}
+          {/**<Route path='/transaction' element={<Transaction/>}></Route> */}
+
         </Routes>
         <Footer></Footer>
       </div>
