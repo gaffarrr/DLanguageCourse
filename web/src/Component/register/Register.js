@@ -24,7 +24,6 @@ const Register = () => {
 
     return (
         <div alignItems='center'>
-            <Header />
             <Container component='main'>
                 <Box sx={{
                     mt: 8,

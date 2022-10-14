@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import confirmed from './confirmed.png'
 const EmailConfirmation = () => {
 
@@ -7,8 +8,9 @@ const EmailConfirmation = () => {
         <img src={confirmed}></img>
         <h3 font-color='dark green'>Email Confirmation Success</h3>
         <p>Thanks for confirming your email. Please login first</p>
-        <button>Login Here</button>
-
+        <Link to="/register">
+          <button>Login Here</button>
+        </Link>
     </div>
   )
 }
