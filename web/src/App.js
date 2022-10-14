@@ -8,7 +8,11 @@ import Course from './Component/course/Course';
 import EmailConfirmation from './Component/confirmation/EmailConfirmation';
 import InvoiceConfirmation from './Component/confirmation/InvoiceConfirmation';
 import Register from './Component/register/Register';
+import ClassList from './Component/classlist/ClassList';
+import InvoiceList from './Component/invoice/InvoiceList';
+import InvoiceDetail from './Component/invoice/InvoiceDetail';
 import {Route,Routes,BrowserRouter} from 'react-router-dom';
+
 
 function App() {
   return (
@@ -17,11 +21,15 @@ function App() {
         <Header></Header>
         <Routes>
           <Route path='/' element={<Body></Body>}></Route>
+          <Route path='/YourClasses' element={<ClassList></ClassList>}></Route>
           <Route path='/Languages' element={<LanguageClass></LanguageClass>}></Route>
           <Route path='/Course' element={<Course></Course>}></Route>
+          <Route path='InvoiceList' element={<InvoiceList></InvoiceList>}></Route>
+          <Route path='InvoiceDetail' element={<InvoiceDetail></InvoiceDetail>}></Route>
           <Route path='/EmailConfirmation' element={<EmailConfirmation></EmailConfirmation>}></Route>
           <Route path='/InvoiceConfirmation' element={<InvoiceConfirmation></InvoiceConfirmation>}></Route>
           <Route path='/register' element={<Register></Register>}></Route>
+          {/*<Route path='/login' element={<Login/>}></Route> **/}
         </Routes>
         <Footer></Footer>
       </div>
