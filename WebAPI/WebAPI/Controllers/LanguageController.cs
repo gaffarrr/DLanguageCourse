@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Language/[controller]")]
     [ApiController]
     public class LanguageController : ControllerBase
     {
