@@ -46,27 +46,31 @@ const Header = () => {
                         </IconButton>
                     </Link>
                     <Box>
-                        <Button sx={{
-                            bgcolor: '#226957',
-                            color: 'white',
-                            fontFamily: 'Montserrat',
-                            marginRight: '16px',
-                            textTransform: 'none',
-                            padding: '10px 20px',
-                            borderRadius: '8px',
-                            width: '86px',
-                            height: '40px'
-                        }}>Login</Button>
-                        <Button sx={{
-                            bgcolor: '#EA9E1F',
-                            color: 'white',
-                            fontFamily: 'Montserrat',
-                            textTransform: 'none',
-                            padding: '10px 20px',
-                            borderRadius: '8px',
-                            width: '105px',
-                            height: '40px'
-                        }}>Sign Up</Button>
+                        <Link to="/login">
+                            <Button sx={{
+                                bgcolor: '#226957',
+                                color: 'white',
+                                fontFamily: 'Montserrat',
+                                marginRight: '16px',
+                                textTransform: 'none',
+                                padding: '10px 20px',
+                                borderRadius: '8px',
+                                width: '86px',
+                                height: '40px'
+                            }}>Login</Button>
+                        </Link>
+                        <Link to="/register">
+                            <Button sx={{
+                                bgcolor: '#EA9E1F',
+                                color: 'white',
+                                fontFamily: 'Montserrat',
+                                textTransform: 'none',
+                                padding: '10px 20px',
+                                borderRadius: '8px',
+                                width: '105px',
+                                height: '40px'
+                            }}>Sign Up</Button>
+                        </Link>
                     </Box>
                 </Toolbar>
             </AppBar>
