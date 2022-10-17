@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { maxWidth } from '@mui/system';
+import './Register.css'
 
 const Register = () => {
     const handleSubmit = (event) => {
@@ -32,8 +33,8 @@ const Register = () => {
                     flexDirection: 'column',
                     alignItems: 'center'
                 }}>
-                    <Grid container>
-                        <Box display='flex' flexDirection='row' gap='10px'>
+                    <Grid container display='flex' flexDirection='column' alignContent='center'>
+                        <Box gap='10px'>
                             <Typography>Lets Join</Typography>
                             <Typography>D'Language</Typography>
                         </Box>
@@ -99,8 +100,8 @@ const Register = () => {
                         </Grid>
                     </Box>
                 </Box>
-            </Container>
-        </div>
+            </Container >
+        </div >
     )
 }
 
