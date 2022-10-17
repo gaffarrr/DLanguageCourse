@@ -11,7 +11,6 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { maxWidth } from '@mui/system';
-import './Register.css'
 
 const Register = () => {
     const handleSubmit = (event) => {
@@ -25,6 +24,7 @@ const Register = () => {
 
     return (
         <div alignItems='center'>
+            <Header />
             <Container component='main'>
                 <Box sx={{
                     mt: 8,
@@ -32,11 +32,11 @@ const Register = () => {
                     flexDirection: 'column',
                     alignItems: 'center'
                 }}>
-                    <Grid container display='flex' flexDirection='column' alignContent='center'>
-                        <Box gap='10px'>
+                    <Grid container maxWidth='690px' display='flex' flexDirection='column' alignItems='flex-start' justifyContent='left'>
+                        <Grid container alignItems='flex-start' justifyContent='left' gap='20px'>
                             <Typography>Lets Join</Typography>
                             <Typography>D'Language</Typography>
-                        </Box>
+                        </Grid>
                         <Typography>Please register first</Typography>
                     </Grid>
                     <Box component='form' noValidate onSubmit={handleSubmit} mt='3px' maxWidth='1000px'>
@@ -92,7 +92,7 @@ const Register = () => {
                         <Grid container mt='80px' justifyContent="center">
                             <Grid item>
                                 Have account? {''}
-                                <Link href="#" variant="body2">
+                                <Link href="/login" variant="body2">
                                     Login here
                                 </Link>
                             </Grid>
