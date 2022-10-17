@@ -18,6 +18,9 @@ import Grid from '@mui/material/Grid'
 import Stack from '@mui/material/Stack'
 import People from '../../Assets/Landing/people.png'
 import flagMedia from '../flag/flagMedia'
+import Footer from '../footer/Footer'
+import Header from '../header/Header'
+import HeaderUser from '../headerUser/HeaderUser'
 
 const Body = () => {
     const [courseData, setCourseData] = useState([]);
@@ -34,6 +37,7 @@ const Body = () => {
     }
     return (
         <div>
+            <HeaderUser></HeaderUser>
             <Box style={styles.heroContainer}>
                 <Box align='center'>
                     <Typography
@@ -99,6 +103,7 @@ const Body = () => {
             <Box color='white'>
                 <flagMedia></flagMedia>
             </Box>
+            <Footer></Footer>
         </div >
     )
 }

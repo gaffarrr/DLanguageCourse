@@ -11,6 +11,7 @@ import Button from '@mui/material/Button'
 import '@fontsource/montserrat'
 import { borderRadius } from '@mui/system'
 import shadows from '@mui/material/styles/shadows'
+import Link from '@mui/material/Link'
 
 const Header = () => {
     return (
@@ -30,6 +31,20 @@ const Header = () => {
                             Language
                         </Typography>
                     </IconButton>
+                    <Link to="/">
+                        <IconButton
+                            size="large"
+                            edge="start"
+                            color="inherit"
+                            aria-label="menu"
+                            sx={{ mr: 2 }}
+                        >
+                            <img src={logo} className="logo" alt="logo" />
+                            <Typography variant="h5" component="div" sx={{ flexGrow: 1, color: 'black', fontFamily: 'Montserrat' }}>
+                                Language
+                            </Typography>
+                        </IconButton>
+                    </Link>
                     <Box>
                         <Button sx={{
                             bgcolor: '#226957',
@@ -55,7 +70,7 @@ const Header = () => {
                     </Box>
                 </Toolbar>
             </AppBar>
-        </Box>
+        </Box >
     )
 }
 
