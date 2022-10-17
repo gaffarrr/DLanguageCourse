@@ -11,7 +11,7 @@ import Button from '@mui/material/Button'
 import '@fontsource/montserrat'
 import { borderRadius } from '@mui/system'
 import shadows from '@mui/material/styles/shadows'
-import { Link } from 'react-router-dom'
+import Link from '@mui/material/Link'
 
 const Header = () => {
     return (
@@ -19,6 +19,18 @@ const Header = () => {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" elevation={0} sx={{ bgcolor: 'white' }}>
                 <Toolbar className='Toolbar'>
+                    <IconButton
+                        size="large"
+                        edge="start"
+                        color="inherit"
+                        aria-label="menu"
+                        sx={{ mr: 2 }}
+                    >
+                        <img src={logo} className="logo" alt="logo" />
+                        <Typography variant="h5" component="div" sx={{ flexGrow: 1, color: 'black', fontFamily: 'Montserrat' }}>
+                            Language
+                        </Typography>
+                    </IconButton>
                     <Link to="/">
                         <IconButton
                             size="large"
@@ -33,7 +45,6 @@ const Header = () => {
                             </Typography>
                         </IconButton>
                     </Link>
-                    
                     <Box>
                         <Link to="/login">
                             <Button sx={{
@@ -63,7 +74,7 @@ const Header = () => {
                     </Box>
                 </Toolbar>
             </AppBar>
-        </Box>
+        </Box >
     )
 }
 
