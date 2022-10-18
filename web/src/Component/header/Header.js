@@ -19,7 +19,7 @@ const Header = () => {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" elevation={0} sx={{ bgcolor: 'white' }}>
                 <Toolbar className='Toolbar'>
-                    <IconButton
+                    {/* <IconButton
                         size="large"
                         edge="start"
                         color="inherit"
@@ -30,8 +30,8 @@ const Header = () => {
                         <Typography variant="h5" component="div" sx={{ flexGrow: 1, color: 'black', fontFamily: 'Montserrat' }}>
                             Language
                         </Typography>
-                    </IconButton>
-                    <Link to="/">
+                    </IconButton> */}
+                    <Link href="/">
                         <IconButton
                             size="large"
                             edge="start"
@@ -46,7 +46,7 @@ const Header = () => {
                         </IconButton>
                     </Link>
                     <Box>
-                        <Link to="/login">
+                        <Link href="/login">
                             <Button sx={{
                                 bgcolor: '#226957',
                                 color: 'white',
@@ -59,7 +59,7 @@ const Header = () => {
                                 height: '40px'
                             }}>Login</Button>
                         </Link>
-                        <Link to="/register">
+                        <Link href="/register">
                             <Button sx={{
                                 bgcolor: '#EA9E1F',
                                 color: 'white',

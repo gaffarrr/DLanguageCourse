@@ -1,3 +1,5 @@
+using DLanguage.Data;
+using DLanguage.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +39,8 @@ namespace WebAPI
                 .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
                 = new DefaultContractResolver());
 
+            DataDependencyProfile.Register(Configuration, services);
+            ServiceDependencyProfile.Register(Configuration, services);
             services.AddControllers();
         }
 

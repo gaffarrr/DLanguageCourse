@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DLanguage.Service
 {
-    public class ServiceDepedencyProfile
+    public class ServiceDependencyProfile
     {
         public static void Register(IConfiguration configuration, IServiceCollection services)
         {

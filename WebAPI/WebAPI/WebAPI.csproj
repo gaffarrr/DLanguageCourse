@@ -11,4 +11,10 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\User.Data\DLanguage.Data.csproj" />
+    <ProjectReference Include="..\User.Model\DLanguage.Model.csproj" />
+    <ProjectReference Include="..\User.Service\DLanguage.Service.csproj" />
+  </ItemGroup>
+
 </Project>

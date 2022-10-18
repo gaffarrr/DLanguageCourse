@@ -9,14 +9,13 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace DLanguage.Data
 {
-    public class DataDepedencyProfile
+    public class DataDependencyProfile
     {
         public static void Register(IConfiguration configuration, IServiceCollection services)
         {
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceRepository>();
             services.AddScoped<IStudentRepository, StudentRepository>();
-
         }
     }
 }

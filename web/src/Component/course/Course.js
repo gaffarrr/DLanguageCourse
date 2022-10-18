@@ -7,13 +7,12 @@ const CourseClass=()=>{
             language_name:'English',
             course_name:'Basic English for Junior',
             price:0,
-            image_file:'/English.png',
             description:'LOREM IPSUM DOLOR SIT AMET'
         }
     ])
     const [othercourses,setothercourses]=useState([
         {
-            
+            image_file:'/EC1.png'
         }
     ])
     return(

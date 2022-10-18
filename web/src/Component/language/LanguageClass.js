@@ -1,6 +1,8 @@
 import React,{useState, component} from "react";
 import { Grid,Box } from "@mui/material";
 import './language.css'
+import Header from "../header/Header";
+import Footer from "../footer/Footer"
 
 function LanguageClass(){
     const [language,setLanguage]=useState([
@@ -27,6 +29,7 @@ function LanguageClass(){
     )
     return(
         <div align="center">
+            <Header></Header>
             <img src={"images/banners"+language[0].banner_file} className="banner"></img> 
             <h1 align="left">
                 {language[0].name}
@@ -48,6 +51,7 @@ function LanguageClass(){
                    )
                 }
             </Box>
+            <Footer></Footer>
         </div>
     );
 }

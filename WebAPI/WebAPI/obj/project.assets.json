@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {
+    "net6.0": {
       "Microsoft.AspNetCore.JsonPatch/5.0.17": {
         "type": "package",
         "dependencies": {
@@ -89,12 +89,12 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         },
         "compile": {
-          "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.dll": {
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.dll": {
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.dll": {
             "related": ".xml"
           }
         },
@@ -105,12 +105,12 @@
       "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -124,12 +124,12 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         },
         "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {
+          "lib/net6.0/Microsoft.Extensions.Primitives.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {
+          "lib/net6.0/Microsoft.Extensions.Primitives.dll": {
             "related": ".xml"
           }
         },
@@ -268,12 +268,12 @@
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {
         "type": "package",
         "compile": {
-          "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll": {
+          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll": {
+          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {
             "related": ".xml"
           }
         },
@@ -325,6 +325,82 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "DLanguage.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DLanguage.Data.Interface": "1.0.0",
+          "Microsoft.Extensions.Configuration": "6.0.1",
+          "Microsoft.Extensions.DependencyInjection": "6.0.1"
+        },
+        "compile": {
+          "bin/placeholder/DLanguage.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DLanguage.Data.dll": {}
+        }
+      },
+      "DLanguage.Data.Interface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "6.0.1",
+          "Microsoft.Extensions.DependencyInjection": "6.0.1"
+        },
+        "compile": {
+          "bin/placeholder/DLanguage.Data.Interface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DLanguage.Data.Interface.dll": {}
+        }
+      },
+      "DLanguage.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "6.0.1",
+          "Microsoft.Extensions.DependencyInjection": "6.0.1"
+        },
+        "compile": {
+          "bin/placeholder/DLanguage.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DLanguage.Model.dll": {}
+        }
+      },
+      "DLanguage.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DLanguage.Data.Interface": "1.0.0",
+          "DLanguage.Service.Interface": "1.0.0",
+          "Microsoft.Extensions.Configuration": "6.0.1",
+          "Microsoft.Extensions.DependencyInjection": "6.0.1",
+          "System.Data.SqlClient": "4.8.3"
+        },
+        "compile": {
+          "bin/placeholder/DLanguage.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DLanguage.Service.dll": {}
+        }
+      },
+      "DLanguage.Service.Interface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DLanguage.Model": "1.0.0",
+          "Microsoft.Extensions.Configuration": "6.0.1",
+          "Microsoft.Extensions.DependencyInjection": "6.0.1",
+          "System.Data.SqlClient": "4.8.3"
+        },
+        "compile": {
+          "bin/placeholder/DLanguage.Service.Interface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DLanguage.Service.Interface.dll": {}
         }
       }
     }
@@ -932,10 +1008,38 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "DLanguage.Data/1.0.0": {
+      "type": "project",
+      "path": "../User.Data/DLanguage.Data.csproj",
+      "msbuildProject": "../User.Data/DLanguage.Data.csproj"
+    },
+    "DLanguage.Data.Interface/1.0.0": {
+      "type": "project",
+      "path": "../User.Data.Interface/DLanguage.Data.Interface.csproj",
+      "msbuildProject": "../User.Data.Interface/DLanguage.Data.Interface.csproj"
+    },
+    "DLanguage.Model/1.0.0": {
+      "type": "project",
+      "path": "../User.Model/DLanguage.Model.csproj",
+      "msbuildProject": "../User.Model/DLanguage.Model.csproj"
+    },
+    "DLanguage.Service/1.0.0": {
+      "type": "project",
+      "path": "../User.Service/DLanguage.Service.csproj",
+      "msbuildProject": "../User.Service/DLanguage.Service.csproj"
+    },
+    "DLanguage.Service.Interface/1.0.0": {
+      "type": "project",
+      "path": "../User.Service.Interface/DLanguage.Service.Interface.csproj",
+      "msbuildProject": "../User.Service.Interface/DLanguage.Service.Interface.csproj"
     }
   },
   "projectFileDependencyGroups": {
-    "net5.0": [
+    "net6.0": [
+      "DLanguage.Data >= 1.0.0",
+      "DLanguage.Model >= 1.0.0",
+      "DLanguage.Service >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 5.0.17",
       "Microsoft.Extensions.Configuration >= 6.0.1",
       "Microsoft.Extensions.DependencyInjection >= 6.0.1",
@@ -959,16 +1063,26 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0"
+        "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "projectReferences": {}
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Data\\DLanguage.Data.csproj": {
+              "projectPath": "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Data\\DLanguage.Data.csproj"
+            },
+            "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Model\\DLanguage.Model.csproj": {
+              "projectPath": "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Model\\DLanguage.Model.csproj"
+            },
+            "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Service\\DLanguage.Service.csproj": {
+              "projectPath": "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Service\\DLanguage.Service.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -978,8 +1092,8 @@
       }
     },
     "frameworks": {
-      "net5.0": {
-        "targetAlias": "net5.0",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
             "target": "Package",
