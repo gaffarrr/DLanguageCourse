@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DLanguage.Data.Interface.Repositories
 {
-    interface IStudentRepository
+    public interface IStudentRepository
     {
         public string CreateStudent();
         public string LoginStudent();

@@ -1,11 +1,11 @@
-﻿using DLanguage.Service.Services;
+﻿using DLanguage.Service.Interface.Services;
+using DLanguage.Service.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebAPI._2_Service.Service.Interface;
 
 namespace DLanguage.Service
 {

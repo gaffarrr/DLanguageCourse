@@ -100,3 +100,9 @@ C:\Users\bhira\Documents\Project Folder\Gitlab\DLanguageCourse\WebAPI\WebAPI\obj
 C:\Users\bhira\Documents\Project Folder\Gitlab\DLanguageCourse\WebAPI\WebAPI\obj\Debug\net5.0\refint\WebAPI.dll
 C:\Users\bhira\Documents\Project Folder\Gitlab\DLanguageCourse\WebAPI\WebAPI\obj\Debug\net5.0\WebAPI.genruntimeconfig.cache
 C:\Users\bhira\Documents\Project Folder\Gitlab\DLanguageCourse\WebAPI\WebAPI\obj\Debug\net5.0\ref\WebAPI.dll
+C:\Users\bhira\Documents\Project Folder\Gitlab\DLanguageCourse\WebAPI\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.Configuration.dll
+C:\Users\bhira\Documents\Project Folder\Gitlab\DLanguageCourse\WebAPI\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\bhira\Documents\Project Folder\Gitlab\DLanguageCourse\WebAPI\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\bhira\Documents\Project Folder\Gitlab\DLanguageCourse\WebAPI\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\bhira\Documents\Project Folder\Gitlab\DLanguageCourse\WebAPI\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\bhira\Documents\Project Folder\Gitlab\DLanguageCourse\WebAPI\WebAPI\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll

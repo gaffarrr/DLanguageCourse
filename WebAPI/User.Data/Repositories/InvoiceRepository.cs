@@ -1,8 +1,8 @@
-﻿using System;
+﻿using DLanguage.Data.Interface.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebAPI._3_Data.Data.Interface;
 
 namespace DLanguage.Data.Repositories
 {

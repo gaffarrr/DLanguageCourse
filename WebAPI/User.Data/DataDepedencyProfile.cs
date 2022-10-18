@@ -1,11 +1,11 @@
-﻿using DLanguage.Data.Repositories;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using DLanguage.Data.Interface.Repositories;
+using DLanguage.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebAPI._3_Data.Data.Interface;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DLanguage.Data
 {

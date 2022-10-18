@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "S6kFzZOXZX8PRdP5bwdW8R051Kfh4xcVKjvawiXVjBI6WfbkOjU9WYS6Q35BtU2DUccaj4In3S5ZHbh2rDbdXg==",
+  "dgSpecHash": "pCIvBVPxJ4WDq/DfHRiZQI229AZ/qNJXljTkHYPFhZygRpRoqpUriV4ishCJrz7ovCd2grr4yerFQj+KPHkxog==",
   "success": true,
   "projectFilePath": "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Data.Interface\\DLanguage.Data.Interface.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\bhira\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.1\\microsoft.extensions.configuration.6.0.1.nupkg.sha512",
+    "C:\\Users\\bhira\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\bhira\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.1\\microsoft.extensions.dependencyinjection.6.0.1.nupkg.sha512",
+    "C:\\Users\\bhira\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\bhira\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\bhira\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

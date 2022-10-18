@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DLanguage.Service.Interface.Services
 {
-    interface IStudentService
+    public interface IStudentService
     {
     }
 }
