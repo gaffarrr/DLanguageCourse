@@ -10,7 +10,10 @@ namespace DLanguage.Data.Repositories
     {
         public string CreateInvoice()
         {
-            throw new NotImplementedException();
+            var result = "insert into invoice " +
+                "(id,student_id,invoice_date,total_price) " +
+                "values(@id,@student_id,@invoice_date,@total_price";
+            return result;
         }
 
         public string CreateInvoiceRelation()

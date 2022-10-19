@@ -7,7 +7,7 @@ namespace WebAPI.Controllers
 {
     public class UserController : ControllerBase
     {
-        [Route("api/User/[controller]")]
+        [Route("api/Student/[controller]")]
         [ApiController]
         public class LanguageController : ControllerBase
         {
