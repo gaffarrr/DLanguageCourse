@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace DLanguage.Data.Interface.Repositories
 {
-    public interface IStudentClassRepository
+    public interface ILanguageRepository
     {
-        public string CreateRelation();
-        public string GetClassList();
-        public string GetClassCount();
+        public string GetLanguageById();
+        public string GetLanguageFlagList();
     }
 }

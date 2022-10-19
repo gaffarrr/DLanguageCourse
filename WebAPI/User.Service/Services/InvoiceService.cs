@@ -17,7 +17,21 @@ namespace DLanguage.Service.Services
             this.invoiceRepository = invoiceRepository;
             _db = new SqlConnection("LanguageAppCon");
         }
-
+        public async Task<bool> CreateInvoice(string id,int student_id,DateOnly invoice_date,decimal total_price)
+        {
+            var command = invoiceRepository.CreateInvoice();
+            using (SqlCommand cmd = new SqlCommand(command, _db))
+            {
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@student_id", student_id);
+                cmd.Parameters.AddWithValue("@invoice_date", invoice_date);
+                cmd.Parameters.AddWithValue("@total_price",total_price);
+                await _db.OpenAsync();
+                await cmd.ExecuteNonQueryAsync();
+                await _db.CloseAsync();
+            }
+            return true;
+        }
 
     }
 }

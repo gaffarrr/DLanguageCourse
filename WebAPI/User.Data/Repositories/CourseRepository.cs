@@ -17,8 +17,28 @@ namespace DLanguage.Data.Repositories
 
         public string GetCourseByCategory()
         {
-            var result = "select * from course where language_id = @IdLanguage";
+            var result = "select y.language_name, x.course_name,x.price,x.image_file from courses x " +
+                "join languages y on x.language_id=y.id " +
+                "where y.id=@language_id;";
             return result;
         }
+
+        public string GetCourseByCategoryExceptCurrent()
+        {
+            var result = "select y.language_name, x.course_name,x.price,x.image_file from courses x " +
+                "join languages y on x.language_id=y.id " +
+                "where y.id=@language_id NOT x.id=@id;";
+            return result;
+        }
+
+        public string GetCourseById()
+        {
+            var result = "select y.language_name, x.course_name,x.price,x.image_file,x.description " +
+                "from courses x join languages y on x.language_id=y.id " +
+                "where x.id=@id;";
+            return result;
+        }
+
+        
     }
 }

@@ -16,6 +16,12 @@ namespace DLanguage.Data.Repositories
             return result;
         }
 
+        public string GetClassCount()
+        {
+            var result = "select count(invoice_id) from studentsclass y where y.invoice_id=@invoice_id";
+            return result;
+        }
+
         public string GetClassList()
         {
             var result = "select x.language_name,y.course_name,y.image_files,z.schedule " +

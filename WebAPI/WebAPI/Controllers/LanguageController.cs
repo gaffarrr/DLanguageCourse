@@ -25,7 +25,7 @@ namespace WebAPI.Controllers
         public List<Language> GetLanguagesById(int i)
         {
             
-            string query = @"select language_name, description, flag, banner_file from languages where id="+i;
+            string query = @"select language_name, description, flag, banner_file from languages where id=@id";
             string sqlDataSource = _configuration.GetConnectionString("LanguageAppCon");
             SqlDataReader myReader; 
             List<Language> list = new List<Language>();

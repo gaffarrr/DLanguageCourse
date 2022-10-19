@@ -8,6 +8,8 @@ namespace DLanguage.Data.Interface.Repositories
     public interface ICourseRepository
     {
         public string GetCourse();
+        public string GetCourseById();
         public string GetCourseByCategory();
+        public string GetCourseByCategoryExceptCurrent();
     }
 }

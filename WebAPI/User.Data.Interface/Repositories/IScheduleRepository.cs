@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace DLanguage.Data.Interface.Repositories
 {
-    public interface IStudentClassRepository
+    public interface IScheduleRepository
     {
-        public string CreateRelation();
-        public string GetClassList();
-        public string GetClassCount();
+        public string GetScheduleById();
     }
 }
