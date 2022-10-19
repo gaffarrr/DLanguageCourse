@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../header/Header'
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -21,6 +21,14 @@ const Register = () => {
             password: data.get('password')
         })
     }
+
+    const [values, setValues] = useState({
+        amount: '',
+        password: '',
+        weight: '',
+        weightRange: '',
+        showPassword: false
+    })
 
     return (
         <div alignItems='center'>
@@ -65,6 +73,7 @@ const Register = () => {
                             </Grid>
                             <Grid item xs={12} sm={6} mt='15px'>
                                 <TextField
+                                    type='password'
                                     name="password"
                                     required
                                     fullWidth

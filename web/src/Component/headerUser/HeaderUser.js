@@ -38,7 +38,7 @@ const HeaderUser = () => {
                         </Link>
 
                         <Box display="flex" gap="50px" flexDirection="row" >
-                            <Link to="/#">
+                            <Link to="/Checkout">
                                 <ShoppingCartIcon fontSize="small" sx={{ color: "#226957" }} />
                             </Link>
                             <Link to="/YourClasses">My Class
