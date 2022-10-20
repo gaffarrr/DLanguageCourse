@@ -16,10 +16,11 @@ namespace DLanguage.Service.Services
         private readonly IInvoiceRepository invoiceRepository;
         private readonly IStudentClassRepository studentClassRepository;
         private readonly SqlConnection _db;
-        public InvoiceService(IInvoiceRepository invoiceRepository)
+        public InvoiceService(IInvoiceRepository invoiceRepository,IStudentClassRepository studentClassRepository)
         {
             this.invoiceRepository = invoiceRepository;
-            _db = new SqlConnection("LanguageAppCon");
+            this.studentClassRepository = studentClassRepository;
+            _db = new SqlConnection("Server=localhost;Database=learning_db;User Id=sa;Password=root;");
         }
         public async Task<bool> CreateInvoice(string id, int student_id, DateOnly invoice_date, decimal total_price)
         {
@@ -39,7 +40,7 @@ namespace DLanguage.Service.Services
 
         public async Task<List<DetailInvoice>> GetDetailInvoice(string id)
         {
-            var command = invoiceRepository.CreateInvoice();
+            var command = invoiceRepository.GetDetailInvoice();
             var result = new List<DetailInvoice>();
             using (SqlCommand cmd = new SqlCommand(command, _db))
             {
@@ -63,11 +64,11 @@ namespace DLanguage.Service.Services
         }
         public async Task<List<InvoiceDisplay>> GetMyInvoices(int student_id)
         {
-            var command = invoiceRepository.CreateInvoice();
+            var command = invoiceRepository.GetMyInvoices();
             var result = new List<InvoiceDisplay>();
             using (SqlCommand cmd = new SqlCommand(command, _db))
             {
-                cmd.Parameters.AddWithValue("@student_id", student_id);
+                cmd.Parameters.AddWithValue("@id", student_id);
                 await _db.OpenAsync();
                 SqlDataReader reader = await cmd.ExecuteReaderAsync();
                 while (reader.Read())
@@ -75,7 +76,7 @@ namespace DLanguage.Service.Services
                     result.Add(new InvoiceDisplay
                     {
                         id = reader["id"].ToString(),
-                        date = DateOnly.FromDateTime(Convert.ToDateTime(reader["date"])),
+                        invoice_date = DateOnly.FromDateTime(Convert.ToDateTime(reader["date"])),
                         total_price = Convert.ToDecimal(reader["total_price"])
                     });
                     

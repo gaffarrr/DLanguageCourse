@@ -9,7 +9,7 @@ namespace DLanguage.Model.Entities.SubEntities
     public class InvoiceDisplay
     {
         public string id { get; set; }
-        public DateOnly date { get; set; }
+        public DateOnly invoice_date { get; set; }
         public decimal total_price { get; set; }
         public int amount { get; set; }
 

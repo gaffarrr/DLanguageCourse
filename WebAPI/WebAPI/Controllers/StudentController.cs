@@ -11,7 +11,7 @@ namespace WebAPI.Controllers
 {
     public class StudentController : ControllerBase
     {
-        [Route("api/Student/[controller]")]
+        [Route("api/[controller]")]
         [ApiController]
         public class LanguageController : ControllerBase
         {

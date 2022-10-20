@@ -12,7 +12,7 @@ using DLanguage.Service.Interface.Services;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/Languages/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class LanguageController : ControllerBase
     {

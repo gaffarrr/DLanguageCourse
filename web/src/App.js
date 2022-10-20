@@ -27,17 +27,15 @@ function App() {
           <Route path='/YourClasses' element={<ClassList></ClassList>}></Route>
           <Route path='/Languages' element={<LanguageClass></LanguageClass>}></Route>
           <Route path='/Course' element={<Course></Course>}></Route>
-          <Route path='InvoiceList' element={<InvoiceList></InvoiceList>}></Route>
-          <Route path='InvoiceDetail' element={<InvoiceDetail></InvoiceDetail>}></Route>
+          <Route path='/InvoiceList' element={<InvoiceList></InvoiceList>}></Route>
+          <Route path='/InvoiceDetail' element={<InvoiceDetail></InvoiceDetail>}></Route>
           <Route path='/EmailConfirmation' element={<EmailConfirmation></EmailConfirmation>}></Route>
           <Route path='/InvoiceConfirmation' element={<InvoiceConfirmation></InvoiceConfirmation>}></Route>
           <Route path='/register' element={<Register></Register>}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/forgotPassword' element={<ForgotPassword />}></Route>
           <Route path='/forgotPassword/reset' element={<ResetPassword />}></Route>
-          {/*<Route path='/login' element={<Login/>}></Rout1e> **/}
           <Route path='/checkout' element={<Checkout />}></Route>
-          {/**<Route path='/transaction' element={<Transaction/>}></Route> */}
 
         </Routes>
       </div>

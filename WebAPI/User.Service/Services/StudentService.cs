@@ -16,7 +16,7 @@ namespace DLanguage.Service.Services
         public StudentService(IStudentRepository studentRepository)
         {
             this.studentRepository = studentRepository;
-            _db = new SqlConnection("LanguageAppCon");
+            _db = new SqlConnection("Server=localhost;Database=learning_db;User Id=sa;Password=root;");
         }
 
         public async Task<bool> CreateStudent(Student student)

@@ -19,7 +19,7 @@ namespace DLanguage.Service.Services
         public CourseService(ICourseRepository courseRepository)
         {
             this.courseRepository = courseRepository;
-            _db = new SqlConnection("LanguageAppCon");
+            _db = new SqlConnection("Server=localhost;Database=learning_db;User Id=sa;Password=root;");
         }
         public async Task<List<Course>> Get()
         {
@@ -34,12 +34,12 @@ namespace DLanguage.Service.Services
                 {
                     result.Add(new Course
                     {
-                        IdCourse = Convert.ToInt32(reader["IdCourse"]),
-                        CourseName = reader["CourseName"].ToString(),
-                        IdLanguage = Convert.ToInt32(reader["IdLanguage"]),
-                        Price = Convert.ToDecimal(reader["Price"]),
-                        Image = reader["Image"].ToString(),
-                        Description = reader["Description"].ToString()
+                        id = Convert.ToInt32(reader["id"]),
+                        course_name = reader["course_name"].ToString(),
+                        language_id = Convert.ToInt32(reader["language_id"]),
+                        price = Convert.ToDecimal(reader["price"]),
+                        image_file = reader["image_file"].ToString(),
+                        description = reader["description"].ToString()
                     });
                 }
                 await _db.CloseAsync();
@@ -54,7 +54,7 @@ namespace DLanguage.Service.Services
             using (SqlCommand cmd = new SqlCommand(command, _db))
             {
                 await _db.OpenAsync();
-                cmd.Parameters.AddWithValue("@IdLanguage", languageId);
+                cmd.Parameters.AddWithValue("@language_id", languageId);
                 SqlDataReader reader = await cmd.ExecuteReaderAsync();
 
                 while (reader.Read())

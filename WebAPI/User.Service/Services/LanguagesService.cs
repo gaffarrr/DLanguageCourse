@@ -18,7 +18,7 @@ namespace DLanguage.Service.Services
         public LanguagesService(ILanguageRepository languageRepository)
         {
             this.languageRepository = languageRepository;
-            _db = new SqlConnection("LanguageAppCon");
+            _db = new SqlConnection("Server=localhost;Database=learning_db;User Id=sa;Password=root;");
         }
         public async Task<Language> GetLanguageById(int id)
         {

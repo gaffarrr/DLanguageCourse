@@ -2,11 +2,11 @@
 {
     public class Course
     {
-        public int IdCourse { get; set; }
-        public string CourseName { get; set; }
-        public int IdLanguage { get; set; }
-        public string Description { get; set; }
-        public decimal Price { get; set; }
-        public string Image { get; set; }
+        public int id { get; set; }
+        public string course_name { get; set; }
+        public int language_id { get; set; }
+        public string description { get; set; }
+        public decimal price { get; set; }
+        public string image_file { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/invoice/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class InvoiceController : ControllerBase
     {
@@ -25,7 +25,8 @@ namespace WebAPI.Controllers
         [HttpGet("detail/{id}")]
         public async Task<List<DetailInvoice>> GetDetailInvoice(string id)
         {
-            return await invoiceService.GetDetailInvoice(id);
+            var result = await invoiceService.GetDetailInvoice(id);
+            return result;
         }
         [HttpGet("display/{id:int}")]
         public async Task<List<InvoiceDisplay>> GetMyInvoices(int id)

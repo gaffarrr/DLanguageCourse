@@ -34,7 +34,7 @@ const Header = () => {
                         </IconButton>
                     </Link>
                     <Box>
-                        <Link href="/login">
+                        <Link to="/login">
                             <Button sx={{
                                 bgcolor: '#226957',
                                 color: 'white',
@@ -47,7 +47,7 @@ const Header = () => {
                                 height: '40px'
                             }}>Login</Button>
                         </Link>
-                        <Link href="/register">
+                        <Link to="/register">
                             <Button sx={{
                                 bgcolor: '#EA9E1F',
                                 color: 'white',

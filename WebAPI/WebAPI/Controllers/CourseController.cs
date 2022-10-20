@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/course/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CourseController : ControllerBase
     {
@@ -21,15 +21,16 @@ namespace WebAPI.Controllers
         {
             this.courseService=courseService;
         }
-        [HttpGet]
+        [HttpGet("courses")]
         public async Task<List<Course>> Get()
         {
-            return await courseService.Get();
+            var result = await courseService.Get();
+            return result;
         }
-        [HttpGet("{languageid:int}")]
-        public async Task<List<CourseDisplay>> GetByCategory(int languageid)
+        [HttpGet("{language_id:int}")]
+        public async Task<List<CourseDisplay>> GetByCategory(int language_id)
         {
-            return await courseService.GetByCategory(languageid);
+            return await courseService.GetByCategory(language_id);
         }
         [HttpGet("detail/{id:int}")]
         public async Task<List<CourseDisplayDetail>> GetById(int id)

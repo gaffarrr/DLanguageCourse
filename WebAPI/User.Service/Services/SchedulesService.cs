@@ -17,7 +17,7 @@ namespace DLanguage.Service.Services
         public SchedulesService(IScheduleRepository scheduleRepository)
         {
             this.scheduleRepository = scheduleRepository;
-            _db = new SqlConnection("LanguageAppCon");
+            _db = new SqlConnection("Server=localhost;Database=learning_db;User Id=sa;Password=root;");
         }
 
         public async Task<List<Schedules>> GetDatesById(int id)
