@@ -28,7 +28,7 @@ namespace WebAPI.Controllers
             var list=await languageService.GetLanguageById(i);
             return list;
         }
-        [HttpGet("/flags")]
+        [HttpGet("flags")]
         public async Task<List<Language>> GetLanguagesFlag()
         {
             var list = await languageService.GetLanguagesFlag();

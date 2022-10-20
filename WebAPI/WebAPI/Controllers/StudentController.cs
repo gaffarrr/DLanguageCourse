@@ -26,7 +26,7 @@ namespace WebAPI.Controllers
                 var result = await studentService.CreateStudent(student);
                 return Ok(result);
             }
-            [HttpPost("{email:string}")]
+            [HttpPost("{email}")]
             public async Task<IActionResult> IsEmailThere(string email)
             {
                 var result = await studentService.IsEmailThere(email);
@@ -38,7 +38,7 @@ namespace WebAPI.Controllers
                 var result = await studentService.LoginStudent(x.email, x.password);
                 return Ok(result);
             }
-            [HttpPut("{id:int}/{password:string}")]
+            [HttpPut("{id:int}/{password}")]
             public async Task<IActionResult> UpdateStudent(int id,string password)
             {
                 var result = await studentService.UpdateStudent(id, password);

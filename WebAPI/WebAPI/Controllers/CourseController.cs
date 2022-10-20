@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
         [HttpGet("{languageid:int}")]
         public async Task<List<CourseDisplay>> GetByCategory(int languageid)
         {
-            return await courseService.GetByCategory(id);
+            return await courseService.GetByCategory(languageid);
         }
         [HttpGet("detail/{id:int}")]
         public async Task<List<CourseDisplayDetail>> GetById(int id)
