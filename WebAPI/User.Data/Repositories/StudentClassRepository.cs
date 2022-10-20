@@ -12,19 +12,19 @@ namespace DLanguage.Data.Repositories
         public string CreateRelation()
         {
             var result = "insert into studentclass values " +
-                "(@student_id,@class_id,@schedule,@invoice_id";
+                "(@student_id,@course_id,@schedule,@invoice_id";
             return result;
         }
 
         public string GetClassCount()
         {
-            var result = "select count(invoice_id) from studentsclass y where y.invoice_id=@invoice_id";
+            var result = "select count(invoice_id) as amount from studentsclass y where y.invoice_id=@invoice_id";
             return result;
         }
 
         public string GetClassList()
         {
-            var result = "select x.language_name,y.course_name,y.image_files,z.schedule " +
+            var result = "select x.language_name,y.course_name,y.image_file,z.schedule " +
                 "from languages x " +
                 "inner join courses y on x.id=y.language_id " +
                 "inner join studentsclass z on z.course_id=y.id " +

@@ -16,6 +16,9 @@ namespace DLanguage.Data
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceRepository>();
             services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IScheduleRepository, ScheduleRepository>();
+            services.AddScoped<ILanguageRepository, LanguageRepository>();
+            services.AddScoped<IStudentClassRepository, StudentClassRepository>();
         }
     }
 }

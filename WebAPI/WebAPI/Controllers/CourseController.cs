@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DLanguage.Model.Entities;
+using DLanguage.Model.Entities.SubEntities;
+using DLanguage.Service.Interface.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -11,12 +14,32 @@ namespace WebAPI.Controllers
 {
     [Route("api/course/[controller]")]
     [ApiController]
-    public class CourseController : Controller
+    public class CourseController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
-        public CourseController(IConfiguration configuration)
+        private readonly ICourseService courseService;
+        public CourseController(ICourseService courseService)
         {
-            _configuration = configuration;
+            this.courseService=courseService;
+        }
+        [HttpGet]
+        public async Task<List<Course>> Get()
+        {
+            return await courseService.Get();
+        }
+        [HttpGet("{languageid:int}")]
+        public async Task<List<CourseDisplay>> GetByCategory(int languageid)
+        {
+            return await courseService.GetByCategory(languageid);
+        }
+        [HttpGet("detail/{id:int}")]
+        public async Task<List<CourseDisplayDetail>> GetById(int id)
+        {
+            return await courseService.GetById(id);
+        }
+        [HttpGet("{languageid:int}/{id:int}")]
+        public async Task<List<CourseDisplay>> GetByCategoryExceptCurrent(int languageid,int id)
+        {
+            return await courseService.GetByCategoryExceptCurrent(languageid, id);
         }
     }
 }

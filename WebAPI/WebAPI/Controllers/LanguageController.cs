@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using DLanguage.Model.Entities;
+using DLanguage.Service.Interface.Services;
 
 namespace WebAPI.Controllers
 {
@@ -15,50 +16,22 @@ namespace WebAPI.Controllers
     [ApiController]
     public class LanguageController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
-        public LanguageController(IConfiguration configuration)
+        private readonly ILanguageService languageService;
+        public LanguageController(ILanguageService languageService)
         {
-            _configuration = configuration;
+            this.languageService=languageService;
         }
 
         [HttpGet("{i:int}")]
-        public List<Language> GetLanguagesById(int i)
+        public async Task<Language> GetLanguagesById(int i)
         {
-            
-            string query = @"select language_name, description, flag, banner_file from languages where id=@id";
-            string sqlDataSource = _configuration.GetConnectionString("LanguageAppCon");
-            SqlDataReader myReader; 
-            List<Language> list = new List<Language>();
-            using(SqlConnection myConn = new SqlConnection(sqlDataSource))
-            {
-                myConn.Open();
-                using (SqlCommand myCommand = new SqlCommand(query, myConn))
-                {
-                    myReader = myCommand.ExecuteReader();
-                    while (myReader.Read())
-                    {
-                        var language = new Language();
-                        language.language_name = myReader["language_name"].ToString();
-                        language.description = myReader["description"].ToString();
-                        language.flag = myReader["flag"].ToString();
-                        language.banner_file = myReader["banner_file"].ToString();
-                        list.Add(language);
-                    }
-                }
-            }
-                
-            /*using(SqlConnection myCon=new SqlConnection(sqlDataSource))
-            {
-                myCon.Open();
-                using (SqlCommand myComm = new SqlCommand(query, myCon))
-                {
-                    myReader = myComm.ExecuteReader();
-                    table.Load(myReader);
-
-                    myReader.Close();
-                    myCon.Close();
-                }
-            }**/
+            var list=await languageService.GetLanguageById(i);
+            return list;
+        }
+        [HttpGet("flags")]
+        public async Task<List<Language>> GetLanguagesFlag()
+        {
+            var list = await languageService.GetLanguagesFlag();
             return list;
         }
     }
