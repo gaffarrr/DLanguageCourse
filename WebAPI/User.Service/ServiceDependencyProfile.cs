@@ -19,6 +19,7 @@ namespace DLanguage.Service
             services.AddScoped<ILanguageService,LanguagesService>();
             services.AddScoped<IStudentClassService, StudentClassService>();
             services.AddScoped<IScheduleService,SchedulesService>();
+            services.AddScoped<ICartService, CartService>();
 
         }
     }
