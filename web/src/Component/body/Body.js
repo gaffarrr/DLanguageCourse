@@ -25,8 +25,56 @@ import HeaderUser from '../headerUser/HeaderUser'
 const Body = () => {
     const [courseData, setCourseData] = useState([]);
 
-    const courses = [1, 2, 3, 4, 5, 6];
-    const flags = [1, 2, 3, 4, 5, 6, 7, 8];
+    const [language, setLanguage] = useState([
+        {
+            name: 'Arabic',
+            flag_file: '/Arabic.png'
+        },
+        {
+            name: 'Deutsch',
+            flag_file: '/Deutsch.png'
+        },
+        {
+            name: 'English',
+            flag_file: '/English.png'
+        },
+        {
+            name: 'French',
+            flag_file: '/French.png'
+        },
+        {
+            name: 'Indonesian',
+            flag_file: '/Indonesian.png'
+        },
+        {
+            name: 'Japanese',
+            flag_file: '/Japanese.png'
+        },
+        {
+            name: 'Mandarin',
+            flag_file: '/Mandarin.png'
+        },
+        {
+            name: 'Melayu',
+            flag_file: '/Melayu.png'
+        }
+    ])
+
+    const [courses, setcourses] = useState([
+        {
+            language_name: 'English',
+            course_name: 'Basic English for Junior',
+            price: 400000,
+            image_file: '/EC1.png'
+        },
+        {
+            language_name: 'English',
+            course_name: 'Complete Package - Expert English, TOEFL and IELT',
+            price: 2000000,
+            image_file: '/EC2.png'
+        }
+    ])
+
 
     const styles = {
         heroContainer: {
@@ -37,7 +85,7 @@ const Body = () => {
     }
     return (
         <div>
-            <HeaderUser></HeaderUser>
+            <Header></Header>
             <Box style={styles.heroContainer}>
                 <Box align='center'>
                     <Typography
@@ -73,13 +121,21 @@ const Body = () => {
                 </Box>
             </Box>
             <Container sx={{ py: 8 }} maxWidth="md">
+                <Typography marginBottom={4} color='#226957' fontWeight='bold' variant='h6' fontFamily='Montserrat'>Recommended Class</Typography>
                 <Grid container spacing={4}>
-                    {courses.map((card) =>
-                        <Grid item key={card} xs={12} sm={6} md={4}>
+                    {courses.map((item, index) =>
+                        <Grid item key={index} xs={12} sm={6} md={4}>
                             <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                                 <CardActionArea>
                                     <CardMedia>
-
+                                        <CardMedia>
+                                            <img src={"images/thumbnail" + item.image_file} style={{ height: '175px' }}></img>
+                                        </CardMedia>
+                                        <CardContent>
+                                            <h6 align="left">{item.language_name}</h6>
+                                            <h5 align="left">{item.course_name}</h5>
+                                            <p align="left">IDR {item.price}</p>
+                                        </CardContent>
                                     </CardMedia>
                                 </CardActionArea>
                             </Card>
@@ -100,9 +156,26 @@ const Body = () => {
                     <img src={People} width='350px' />
                 </Box>
             </Box>
-            <Box color='white'>
-                <flagMedia></flagMedia>
-            </Box>
+            <Container sx={{ py: 8 }} maxWidth="md">
+                <Grid container spacing={1}>
+                    {language.map((item, index) =>
+                        <Grid item key={index} xs={12} sm={6} md={3}>
+                            <Card sx={{ height: '90%', width: '90%', display: 'flex', flexDirection: 'column' }}>
+                                <CardActionArea>
+                                    <CardMedia>
+                                        <CardMedia>
+                                            <img src={"images/flags" + item.flag_file} style={{ height: '110px', marginTop: '10px' }}></img>
+                                        </CardMedia>
+                                        <CardContent>
+                                            <h2 align="center" style={{ fontFamily: 'Montserrat' }}>{item.name}</h2>
+                                        </CardContent>
+                                    </CardMedia>
+                                </CardActionArea>
+                            </Card>
+                        </Grid>
+                    )}
+                </Grid>
+            </Container>
             <Footer></Footer>
         </div >
     )
