@@ -13,6 +13,9 @@ import InvoiceList from './Component/invoice/InvoiceList';
 import InvoiceDetail from './Component/invoice/InvoiceDetail';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Login from './Component/login/Login';
+import Checkout from './Component/checkout/Checkout';
+import ForgotPassword from './Component/forgotPassword/ForgotPassword';
+import ResetPassword from './Component/resetPassword/ResetPassword';
 
 
 function App() {
@@ -30,8 +33,10 @@ function App() {
           <Route path='/InvoiceConfirmation' element={<InvoiceConfirmation></InvoiceConfirmation>}></Route>
           <Route path='/register' element={<Register></Register>}></Route>
           <Route path='/login' element={<Login />}></Route>
+          <Route path='/forgotPassword' element={<ForgotPassword />}></Route>
+          <Route path='/forgotPassword/reset' element={<ResetPassword />}></Route>
           {/*<Route path='/login' element={<Login/>}></Rout1e> **/}
-          {/*<Route path='/cart' element={<Cart/>}></Route> **/}
+          <Route path='/checkout' element={<Checkout />}></Route>
           {/**<Route path='/transaction' element={<Transaction/>}></Route> */}
 
         </Routes>
