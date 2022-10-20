@@ -1,6 +1,4 @@
 import React from 'react'
-import Header from '../header/Header'
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -11,19 +9,21 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { maxWidth } from '@mui/system';
+import Header from '../header/Header';
+import Button from '@mui/material/Button';
 
-const Login = () => {
+const ResetPassword = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget)
         console.log({
-            email: data.get('email'),
-            password: data.get('password')
+            newPassword: data.get('newPassword'),
+            confNewPassword: data.get('confNewPassword')
         })
     }
 
     return (
-        <div className='divLogin'>
+        <div>
             <Header></Header>
             <Box sx={{
                 mt: 8,
@@ -34,17 +34,17 @@ const Login = () => {
                 <Box component='form' noValidate onSubmit={handleSubmit} mt='3px' maxWidth='1000px'>
 
                     <Grid container display='flex' flexDirection='column' alignItems='flex-start' justifyContent='left'>
-                        <Typography>Lets Join</Typography>
-                        <Typography>D'Language</Typography>
+                        <Typography>Create Password</Typography>
                     </Grid>
                     <Grid mt='10px' width='700px'>
                         <Grid item xs={12} sm={6} mt='15px'>
                             <TextField
-                                name="email"
+                                type='password'
+                                name="newPassword"
                                 required
                                 fullWidth
-                                id='email'
-                                label='Email'
+                                id='newPassword'
+                                label='New Password'
                                 autoFocus
                                 size='small'
                             />
@@ -52,39 +52,24 @@ const Login = () => {
                         <Grid item xs={12} sm={6} mt='15px'>
                             <TextField
                                 type='password'
-                                name="password"
+                                name="confNewPassword"
                                 required
                                 fullWidth
-                                id='password'
-                                label='Password'
+                                id='confNewPassword'
+                                label='Confirm New Password'
                                 autoFocus
                                 size='small'
                             />
                         </Grid>
                     </Grid>
-                    <Grid container mt='80px' justifyContent="left">
-                        <Grid item>
-                            Forgot Password? {''}
-                            <Link href="/ForgotPassword" variant="body2">
-                                Click Here
-                            </Link>
-                        </Grid>
-                    </Grid>
-                    <Grid container justifyContent='flex-end'>
-                        <Button type='submit' sx={{ justifyContent: 'flex-end', bgcolor: '#226957', marginTop: '50px' }} variant='contained'>Login</Button>
-                    </Grid>
-                    <Grid container mt='80px' justifyContent="center">
-                        <Grid item>
-                            Dont have account? {''}
-                            <Link href="/register" variant="body2">
-                                Sign Up Here
-                            </Link>
-                        </Grid>
+                    <Grid container justifyContent='flex-end' gap={2}>
+                        <Button href="/" sx={{ justifyContent: 'flex-end', bgcolor: '#EA9E1F', marginTop: '50px' }} variant='contained'>Cancel</Button>
+                        <Button type='submit' sx={{ justifyContent: 'flex-end', bgcolor: '#226957', marginTop: '50px' }} variant='contained'>Confirm</Button>
                     </Grid>
                 </Box>
             </Box>
-        </div >
+        </div>
     )
 }
 
-export default Login
+export default ResetPassword
