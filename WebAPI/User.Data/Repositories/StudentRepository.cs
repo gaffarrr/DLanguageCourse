@@ -10,17 +10,28 @@ namespace DLanguage.Data.Repositories
     {
         public string CreateStudent()
         {
-            throw new NotImplementedException();
+            var result = "insert into students (name,email,password) " +
+                "values (@name,@email,@password)";
+            return result;
+        }
+
+        public string IsEmailThere()
+        {
+            var result = "select count(1) from students where email=@email";
+            return result;
         }
 
         public string LoginStudent()
         {
-            throw new NotImplementedException();
+            var result = "SELECT * FROM students WHERE email = @email AND password = @password";
+            return result;
         }
 
         public string UpdateStudent()
         {
-            throw new NotImplementedException();
+            var result = "update students set password=@password where id=@id";
+            return result;
         }
+        
     }
 }

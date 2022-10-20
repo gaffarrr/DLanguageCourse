@@ -7,10 +7,11 @@ namespace DLanguage.Model.Entities
 {
     public class Language
     {
-        public int langId { get; set; }
-        public string langName { get; set; }
-        public string descLang { get; set; }
-        public string flagLang { get; set; }
+        public int id { get; set; }
+        public string language_name { get; set; }
+        public string description { get; set; }
+        public string flag { get; set; }
+        public string banner_file { get; set; }
 
     }
 }

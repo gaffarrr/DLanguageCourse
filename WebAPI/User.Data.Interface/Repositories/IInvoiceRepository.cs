@@ -11,5 +11,6 @@ namespace DLanguage.Data.Interface.Repositories
         public string CreateInvoiceRelation();
         public string GetDetailInvoice();
         public string GetMyCourse();
+        public string GetMyInvoices();
     }
 }
