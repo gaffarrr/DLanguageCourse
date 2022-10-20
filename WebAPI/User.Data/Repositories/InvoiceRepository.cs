@@ -24,7 +24,7 @@ namespace DLanguage.Data.Repositories
         public string GetDetailInvoice()
         {
             var result = "select x.course_name, y. language_name, z.schedule, x.price from courses x " +
-                "join languages y on x.language_id=y.id\r\njoin studentclass z on x.id=z.course_id " +
+                "join languages y on x.language_id=y.id join studentclass z on x.id=z.course_id " +
                 "where z.invoice_id=@invoice_id;";
             return result;
         }

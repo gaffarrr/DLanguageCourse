@@ -18,7 +18,7 @@ namespace DLanguage.Data.Repositories
 
         public string GetClassCount()
         {
-            var result = "select count(invoice_id) from studentsclass y where y.invoice_id=@invoice_id";
+            var result = "select count(invoice_id) as amount from studentsclass y where y.invoice_id=@invoice_id";
             return result;
         }
 
