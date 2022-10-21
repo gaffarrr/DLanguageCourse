@@ -21,44 +21,31 @@ import flagMedia from '../flag/flagMedia'
 import Footer from '../footer/Footer'
 import Header from '../header/Header'
 import HeaderUser from '../headerUser/HeaderUser'
+import Axios from 'axios'
 
 const Body = () => {
     const [courseData, setCourseData] = useState([]);
 
     const [language, setLanguage] = useState([
-        {
-            name: 'Arabic',
-            flag_file: '/Arabic.png'
-        },
-        {
-            name: 'Deutsch',
-            flag_file: '/Deutsch.png'
-        },
-        {
-            name: 'English',
-            flag_file: '/English.png'
-        },
-        {
-            name: 'French',
-            flag_file: '/French.png'
-        },
-        {
-            name: 'Indonesian',
-            flag_file: '/Indonesian.png'
-        },
-        {
-            name: 'Japanese',
-            flag_file: '/Japanese.png'
-        },
-        {
-            name: 'Mandarin',
-            flag_file: '/Mandarin.png'
-        },
-        {
-            name: 'Melayu',
-            flag_file: '/Melayu.png'
-        }
+        
     ])
+    const AddLanguage = (value) => {
+        setLanguage([...language,value])
+    }
+    const GetFlag = () =>{
+        Axios.get(
+            {
+                url: 'http://localhost:5000/api/language/flags'
+                
+            }).
+            then((response)=>
+            {
+                if(response.status==200){
+                    AddLanguage(response)
+                }
+            })
+        
+    }
 
     const [courses, setcourses] = useState([
         {
@@ -83,6 +70,11 @@ const Body = () => {
             padding: '30px'
         }
     }
+    useEffect(()=>{
+        GetFlag()
+    }
+    )
+    
     return (
         <div>
             <Header></Header>
@@ -123,6 +115,7 @@ const Body = () => {
             <Container sx={{ py: 8 }} maxWidth="md">
                 <Typography marginBottom={4} color='#226957' fontWeight='bold' variant='h6' fontFamily='Montserrat'>Recommended Class</Typography>
                 <Grid container spacing={4}>
+                        
                     {courses.map((item, index) =>
                         <Grid item key={index} xs={12} sm={6} md={4}>
                             <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
@@ -164,7 +157,7 @@ const Body = () => {
                                 <CardActionArea>
                                     <CardMedia>
                                         <CardMedia>
-                                            <img src={"images/flags" + item.flag_file} style={{ height: '110px', marginTop: '10px' }}></img>
+                                            <img src={"images/flags" + item.flag} style={{ height: '110px', marginTop: '10px' }}></img>
                                         </CardMedia>
                                         <CardContent>
                                             <h2 align="center" style={{ fontFamily: 'Montserrat' }}>{item.name}</h2>

@@ -10,7 +10,7 @@ namespace DLanguage.Service.Interface.Services
 {
     public interface ICartService
     {
-        public Task<bool> CreateCart(Cart);
+        public Task<bool> CreateCart(Cart cart);
         public Task<bool> DeleteCart(int student_id, int course_id);
         public Task<List<CartDisplay>> GetCartById(int student_id);
     }

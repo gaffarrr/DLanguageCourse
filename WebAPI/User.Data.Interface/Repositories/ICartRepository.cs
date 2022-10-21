@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace DLanguage.Data.Interface.Repositories
 {
-    internal interface ICartRepository
+    public interface ICartRepository
     {
+        public string CreateCart();
+        public string GetCartById();
+        public string DeleteCart();
     }
 }
