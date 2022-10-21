@@ -9,18 +9,23 @@ const CourseClass = () => {
             language_name: 'English',
             course_name: 'Basic English for Junior',
             price: 0,
-            image_file: '/English.png',
+            image_file: '/EC1.png',
             description: 'LOREM IPSUM DOLOR SIT AMET'
         }
     ])
     const [othercourses, setothercourses] = useState([
         {
-
+            language_name: 'English',
+            course_name: 'Basic English for Junior',
+            price: 0,
+            image_file: '/EC2.png',
+            description: 'LOREM IPSUM DOLOR SIT AMET'
         }
     ])
     return (
         <div>
             <Header />
+            <img src={"images/thumbnail" + course[0].image_file}></img>
             <h6>{course[0].language_name}</h6>
             <h4>{course[0].course_name}</h4>
 

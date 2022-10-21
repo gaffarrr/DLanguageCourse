@@ -1,4 +1,4 @@
-import React, { useState, component ,useEffect} from "react";
+
 import {useParams} from "react-router-dom"
 import { Grid, Box, Card, CardActionArea, CardMedia, CardContent } from "@mui/material";
 import './language.css'
@@ -6,27 +6,15 @@ import Header from "../header/Header";
 import HeaderUser from "../headerUser/HeaderUser";
 import Footer from "../footer/Footer";
 import Axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
+import '@fontsource/montserrat'
 function LanguageClass() {
     let id=useParams()
-    const [language, setLanguage] = useState([
-    ])
-    const [courses, setcourses] = useState([
-        {
-            language_name: 'English',
-            course_name: 'Basic English for Junior',
-            price: 400000,
-            image_file: '/EC1.png'
-        },
-        {
-            language_name: 'English',
-            course_name: 'Complete Package - Expert English, TOEFL and IELT',
-            price: 2000000,
-            image_file: '/EC2.png'
-        }
-    ])
+    const [language, setLanguage] = useState([])
+    const [courses, setcourses] = useState([])
     const GetLanguage=(id)=>{
-        Axios.get('http://localhost:5000/api/language/3').
+        Axios.get('http://localhost:5000/api/language/'+id).
             then((response)=>
             {
                 if(response.status==200){
@@ -37,20 +25,32 @@ function LanguageClass() {
                 console.log(err)
             })
     }
-    useEffect(()=>{
-        GetLanguage(id)
+    const GetCourses=(id)=>{
+        Axios.get('http://localhost:5000/api/course/'+id).
+        then((resp)=>{
+            if(resp.status==200){
+                    console.log(resp.data)
+                    setcourses(resp.data)
+                }
+            }).catch((err)=>{
+                console.log(err)
+            })
     }
-
-    )
+    
+    useEffect(()=>{
+        console.log(id.id)
+        GetLanguage(id.id)
+        GetCourses(id.id)
+    },[])
     return (
         <div align="center">
             <HeaderUser />
-            <img src={"images/banners" + language[0].banner_file} className="banner"></img>
+            <img src={"images/banners" + language.banner_file} className="banner"></img>
             <h1 align="left">
-                {language[0].name}
+                {language.name}
             </h1>
             <p>
-                {language[0].description}
+                {language.description}
             </p>
             <h3>Class you may like:</h3>
 
@@ -77,5 +77,6 @@ function LanguageClass() {
             <Footer></Footer>
         </div>
     );
+    
 }
 export default LanguageClass
