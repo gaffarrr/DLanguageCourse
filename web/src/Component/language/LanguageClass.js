@@ -1,17 +1,15 @@
-import React, { useState, component } from "react";
+import React, { useState, component ,useEffect} from "react";
+import {useParams} from "react-router-dom"
 import { Grid, Box, Card, CardActionArea, CardMedia, CardContent } from "@mui/material";
 import './language.css'
 import Header from "../header/Header";
 import HeaderUser from "../headerUser/HeaderUser";
 import Footer from "../footer/Footer";
+import Axios from 'axios';
 
 function LanguageClass() {
+    let id=useParams()
     const [language, setLanguage] = useState([
-        {
-            name: 'English',
-            description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-            banner_file: '/English.png'
-        }
     ])
     const [courses, setcourses] = useState([
         {
@@ -27,7 +25,23 @@ function LanguageClass() {
             image_file: '/EC2.png'
         }
     ])
+    const GetLanguage=(id)=>{
+        Axios.get('http://localhost:5000/api/language/3').
+            then((response)=>
+            {
+                if(response.status==200){
+                    console.log(response.data)
+                    setLanguage(response.data)
+                }
+            }).catch((err)=>{
+                console.log(err)
+            })
+    }
+    useEffect(()=>{
+        GetLanguage(id)
+    }
 
+    )
     return (
         <div align="center">
             <HeaderUser />

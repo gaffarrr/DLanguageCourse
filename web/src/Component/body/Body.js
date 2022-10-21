@@ -33,33 +33,32 @@ const Body = () => {
         setLanguage([...language,value])
     }
     const GetFlag = () =>{
-        Axios.get(
-            {
-                url: 'http://localhost:5000/api/language/flags'
-                
-            }).
+        Axios.get('http://localhost:5000/api/language/flags').
             then((response)=>
             {
                 if(response.status==200){
-                    AddLanguage(response)
+                    console.log(response.data)
+                    setLanguage(response.data)
                 }
+            }).catch((err)=>{
+                console.log(err)
             })
-        
+    }
+    const GetCourse = () =>{
+        Axios.get('http://localhost:5000/api/course/courses').
+            then((response)=>
+            {
+                if(response.status==200){
+                    console.log(response.data)
+                    setcourses(response.data)
+                }
+            }).catch((err)=>{
+                console.log(err)
+            })
     }
 
     const [courses, setcourses] = useState([
-        {
-            language_name: 'English',
-            course_name: 'Basic English for Junior',
-            price: 400000,
-            image_file: '/EC1.png'
-        },
-        {
-            language_name: 'English',
-            course_name: 'Complete Package - Expert English, TOEFL and IELT',
-            price: 2000000,
-            image_file: '/EC2.png'
-        }
+        
     ])
 
 
@@ -72,8 +71,8 @@ const Body = () => {
     }
     useEffect(()=>{
         GetFlag()
-    }
-    )
+        GetCourse()
+    },[])
     
     return (
         <div>
@@ -122,7 +121,7 @@ const Body = () => {
                                 <CardActionArea>
                                     <CardMedia>
                                         <CardMedia>
-                                            <img src={"images/thumbnail" + item.image_file} style={{ height: '175px' }}></img>
+                                            <img src={"images/Thumbnail" + item.image_file} style={{ height: '175px' }}></img>
                                         </CardMedia>
                                         <CardContent>
                                             <h6 align="left">{item.language_name}</h6>
@@ -160,7 +159,7 @@ const Body = () => {
                                             <img src={"images/flags" + item.flag} style={{ height: '110px', marginTop: '10px' }}></img>
                                         </CardMedia>
                                         <CardContent>
-                                            <h2 align="center" style={{ fontFamily: 'Montserrat' }}>{item.name}</h2>
+                                            <h2 align="center" style={{ fontFamily: 'Montserrat' }}>{item.language_name}</h2>
                                         </CardContent>
                                     </CardMedia>
                                 </CardActionArea>
