@@ -24,14 +24,11 @@ import HeaderUser from '../headerUser/HeaderUser'
 import Axios from 'axios'
 
 const Body = () => {
-    const [courseData, setCourseData] = useState([]);
+    const [courses, setcourses] = useState([])
 
     const [language, setLanguage] = useState([
         
     ])
-    const AddLanguage = (value) => {
-        setLanguage([...language,value])
-    }
     const GetFlag = () =>{
         Axios.get('http://localhost:5000/api/language/flags').
             then((response)=>
@@ -57,9 +54,7 @@ const Body = () => {
             })
     }
 
-    const [courses, setcourses] = useState([
-        
-    ])
+    
 
 
     const styles = {

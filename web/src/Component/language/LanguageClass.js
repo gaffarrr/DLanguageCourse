@@ -17,8 +17,8 @@ function LanguageClass() {
         Axios.get('http://localhost:5000/api/language/'+id).
             then((response)=>
             {
-                if(response.status==200){
-                    console.log(response.data)
+                if(response.status===200){
+                    console.log(response.data.banner_file)
                     setLanguage(response.data)
                 }
             }).catch((err)=>{
@@ -28,8 +28,7 @@ function LanguageClass() {
     const GetCourses=(id)=>{
         Axios.get('http://localhost:5000/api/course/'+id).
         then((resp)=>{
-            if(resp.status==200){
-                    console.log(resp.data)
+            if(resp.status===200){
                     setcourses(resp.data)
                 }
             }).catch((err)=>{
@@ -45,9 +44,9 @@ function LanguageClass() {
     return (
         <div align="center">
             <HeaderUser />
-            <img src={"images/banners" + language.banner_file} className="banner"></img>
+            <img src={"/images/banners" + language.banner_file} className="banner"></img>
             <h1 align="left">
-                {language.name}
+                {language.language_name}
             </h1>
             <p>
                 {language.description}
@@ -61,7 +60,7 @@ function LanguageClass() {
                             <Card sx={{ maxWidth: 345, height: '100%', display: 'flex', flexDirection: 'column' }}>
                                 <CardActionArea>
                                     <CardMedia>
-                                        <img src={"images/thumbnail" + item.image_file}></img>
+                                        <img src={"/images/Thumbnail" + item.image_file} style={{ height: '175px' }}></img>
                                     </CardMedia>
                                     <CardContent>
                                         <h6 align="left">{item.language_name}</h6>
