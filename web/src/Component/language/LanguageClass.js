@@ -1,6 +1,6 @@
 
 import {useParams} from "react-router-dom"
-import { Grid, Box, Card, CardActionArea, CardMedia, CardContent } from "@mui/material";
+import { Grid, Box, Card, CardActionArea, CardMedia, CardContent, Link } from "@mui/material";
 import './language.css'
 import Header from "../header/Header";
 import HeaderUser from "../headerUser/HeaderUser";
@@ -57,18 +57,19 @@ function LanguageClass() {
                 {
                     courses.map((item, index) =>
                         <Grid item key={index}>
-                            <Card sx={{ maxWidth: 345, height: '100%', display: 'flex', flexDirection: 'column' }}>
-                                <CardActionArea>
-                                    <CardMedia>
-                                        <img src={"/images/Thumbnail" + item.image_file} style={{ height: '175px' }}></img>
-                                    </CardMedia>
-                                    <CardContent>
-                                        <h6 align="left">{item.language_name}</h6>
-                                        <h5 align="left">{item.course_name}</h5>
-                                        <p align="left">IDR {item.price}</p>
-                                    </CardContent>
-                                </CardActionArea>
-                            </Card>
+                            
+                                <Card sx={{ maxWidth: 345, height: '100%', display: 'flex', flexDirection: 'column' }}>
+                                    <CardActionArea>
+                                        <CardMedia>
+                                            <img src={"/images/Thumbnail" + item.image_file} style={{ height: '175px' }}></img>
+                                        </CardMedia>
+                                        <CardContent>
+                                            <h6 align="left">{item.language_name}</h6>
+                                            <h5 align="left">{item.course_name}</h5>
+                                            <p align="left">IDR {item.price}</p>
+                                        </CardContent>
+                                    </CardActionArea>
+                                </Card>
                         </Grid>
                     )
                 }
