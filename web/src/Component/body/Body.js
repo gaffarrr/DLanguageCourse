@@ -148,7 +148,7 @@ const Body = () => {
                 <Grid container spacing={1}>
                     {language.map((item, index) =>
                         <Grid item key={index} xs={12} sm={6} md={3}>
-                            <Link href={"/Languages/"+(index+1)}>
+                            <Link href={"/Languages/"+item.id}>
                                 <Card sx={{ height: '90%', width: '90%', display: 'flex', flexDirection: 'column' }}>
                                     <CardActionArea>
                                         <CardMedia>
