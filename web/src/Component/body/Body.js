@@ -112,21 +112,23 @@ const Body = () => {
                         
                     {courses.map((item, index) =>
                         <Grid item key={index} xs={12} sm={6} md={4}>
-                            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                                <CardActionArea>
-                                
-                                    <CardMedia>
+                            <Link href={"/Languages/"+item.language_id+"/course/"+item.id}>
+                                <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                                    <CardActionArea>
+                                    
                                         <CardMedia>
-                                            <img src={"images/Thumbnail" + item.image_file} style={{ height: '175px' }}></img>
+                                            <CardMedia>
+                                                <img src={"images/Thumbnail" + item.image_file} style={{ height: '175px' }}></img>
+                                            </CardMedia>
+                                            <CardContent>
+                                                <h6 align="left">{item.language_name}</h6>
+                                                <h5 align="left">{item.course_name}</h5>
+                                                <p align="left">IDR {item.price}</p>
+                                            </CardContent>
                                         </CardMedia>
-                                        <CardContent>
-                                            <h6 align="left">{item.language_name}</h6>
-                                            <h5 align="left">{item.course_name}</h5>
-                                            <p align="left">IDR {item.price}</p>
-                                        </CardContent>
-                                    </CardMedia>
-                                </CardActionArea>
-                            </Card>
+                                    </CardActionArea>
+                                </Card>
+                            </Link>
                         </Grid>
                     )}
                 </Grid>

@@ -1,5 +1,5 @@
 import React, { useState, component } from "react";
-import { Grid, Box } from "@mui/material";
+import { Grid, Box ,Link} from "@mui/material";
 import Header from '../header/Header'
 import HeaderUser from "../headerUser/HeaderUser";
 import Axios from 'axios';
@@ -56,10 +56,12 @@ const CourseClass = () => {
                 {
                     othercourses.map((item, index) =>
                         <Grid item key={index}>
-                            <img src={"/images/thumbnail" + item.image_file}></img>
-                            <h6 align="left">{item.language_name}</h6>
-                            <h5 align="left">{item.course_name}</h5>
-                            <p align="left">IDR {item.price}</p>
+                            <Link href={"/Languages/"+item.language_id+"/course/"+item.id}>
+                                <img src={"/images/thumbnail" + item.image_file}></img>
+                                <h6 align="left">{item.language_name}</h6>
+                                <h5 align="left">{item.course_name}</h5>
+                                <p align="left">IDR {item.price}</p>
+                            </Link>
                         </Grid>
                     )
                 }

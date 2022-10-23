@@ -57,7 +57,7 @@ function LanguageClass() {
                 {
                     courses.map((item, index) =>
                         <Grid item key={index}>
-                            
+                            <Link href={"/Languages/"+item.language_id+"/course/"+item.id}>
                                 <Card sx={{ maxWidth: 345, height: '100%', display: 'flex', flexDirection: 'column' }}>
                                     <CardActionArea>
                                         <CardMedia>
@@ -70,6 +70,7 @@ function LanguageClass() {
                                         </CardContent>
                                     </CardActionArea>
                                 </Card>
+                            </Link>
                         </Grid>
                     )
                 }

@@ -11,7 +11,7 @@ namespace DLanguage.Data.Repositories
     {
         public string GetCourse()
         {
-            var result = "select id,course_name,language_id,price,image_file,description from courses";
+            var result = "select id,language_id,course_name,language_id,price,image_file,description from courses";
             return result;
         }
 
