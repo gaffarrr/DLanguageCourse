@@ -114,6 +114,7 @@ namespace DLanguage.Service.Services
                 {
 
                     result.id = Convert.ToInt32(reader["id"]);
+                    result.language_id = Convert.ToInt32(reader["language_id"]);
                     result.language_name = reader["language_name"].ToString();
                     result.course_name = reader["course_name"].ToString();
                     result.price = Convert.ToDecimal(reader["price"]);

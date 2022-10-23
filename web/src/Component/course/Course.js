@@ -23,9 +23,22 @@ const CourseClass = () => {
                 console.log(err)
             })
     }
+    const GetOtherCourseName=(langid,id)=>{
+        Axios.get('http://localhost:5000/api/course/'+langid+'/except/'+id).
+            then((response)=>
+            {
+                if(response.status===200){
+                    console.log(response.data)
+                    setothercourses(response.data)
+                }
+            }).catch((err)=>{
+                console.log(err)
+            })
+    }
     useEffect(()=>{
         console.log(id.id)
         GetCourseName(id.id)
+        GetOtherCourseName(id.langid,id.id)
     },[])
     return (
         <div>
@@ -43,7 +56,7 @@ const CourseClass = () => {
                 {
                     othercourses.map((item, index) =>
                         <Grid item key={index}>
-                            <img src={"images/thumbnail" + item.image_file}></img>
+                            <img src={"/images/thumbnail" + item.image_file}></img>
                             <h6 align="left">{item.language_name}</h6>
                             <h5 align="left">{item.course_name}</h5>
                             <p align="left">IDR {item.price}</p>

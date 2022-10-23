@@ -9,6 +9,7 @@ namespace DLanguage.Model.Entities.SubEntities
     public class CourseDisplayDetail
     {
         public int id { get; set; }
+        public int language_id { get; set; }
         public string language_name { get; set; }
         public string course_name { get; set; }
         public decimal price { get; set; }

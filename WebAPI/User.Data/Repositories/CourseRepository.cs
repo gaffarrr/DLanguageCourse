@@ -33,7 +33,7 @@ namespace DLanguage.Data.Repositories
 
         public string GetCourseById()
         {
-            var result = "select x.id, y.language_name, x.course_name,x.price,x.image_file,x.description " +
+            var result = "select x.id,x.language_id, y.language_name, x.course_name,x.price,x.image_file,x.description " +
                 "from courses x join languages y on x.language_id=y.id " +
                 "where x.id=@id;";
             return result;

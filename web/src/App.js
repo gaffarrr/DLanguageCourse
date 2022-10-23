@@ -26,7 +26,7 @@ function App() {
           <Route path='/' element={<Body></Body>}></Route>
           <Route path='/YourClasses' element={<ClassList></ClassList>}></Route>
           <Route path='/Languages/:id' element={<LanguageClass></LanguageClass>}></Route>
-          <Route path='/Course/:id' element={<Course></Course>}></Route>
+          <Route path='/languages/:langid/Course/:id' element={<Course></Course>}></Route>
           <Route path='/InvoiceList' element={<InvoiceList></InvoiceList>}></Route>
           <Route path='/InvoiceDetail' element={<InvoiceDetail></InvoiceDetail>}></Route>
           <Route path='/EmailConfirmation' element={<EmailConfirmation></EmailConfirmation>}></Route>
