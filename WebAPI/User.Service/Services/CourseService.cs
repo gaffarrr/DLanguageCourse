@@ -61,6 +61,7 @@ namespace DLanguage.Service.Services
                 {
                     result.Add(new CourseDisplay
                     {
+                        id = Convert.ToInt32(reader["id"]),
                         language_name = reader["language_name"].ToString(),
                         course_name = reader["course_name"].ToString(),
                         price = Convert.ToDecimal(reader["price"]),
@@ -87,6 +88,7 @@ namespace DLanguage.Service.Services
                 {
                     result.Add(new CourseDisplay
                     {
+                        id = Convert.ToInt32(reader["id"]),
                         language_name = reader["language_name"].ToString(),
                         course_name = reader["course_name"].ToString(),
                         price = Convert.ToDecimal(reader["price"]),
@@ -112,6 +114,7 @@ namespace DLanguage.Service.Services
                 {
                     result.Add(new CourseDisplayDetail
                     {
+                        id = Convert.ToInt32(reader["id"]),
                         language_name = reader["language_name"].ToString(),
                         course_name = reader["course_name"].ToString(),
                         price = Convert.ToDecimal(reader["price"]),

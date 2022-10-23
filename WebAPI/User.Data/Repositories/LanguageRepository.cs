@@ -11,13 +11,13 @@ namespace DLanguage.Data.Repositories
     {
         public string GetLanguageById()
         {
-            var result = "select language_name, description, flag, banner_file from languages where id=@id";
+            var result = "select id, language_name, description, flag, banner_file from languages where id=@id";
             return result;
         }
 
         public string GetLanguageFlagList()
         {
-            var result = "select language_name, flag from languages";
+            var result = "select id, language_name, flag from languages";
             return result;
         }
     }
