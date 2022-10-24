@@ -25,7 +25,7 @@ namespace DLanguage.Data.Repositories
 
         public string GetCourseByCategoryExceptCurrent()
         {
-            var result = "select x.id, y.language_name, x.course_name,x.price,x.image_file from courses x " +
+            var result = "select x.id,x.language_id, y.language_name, x.course_name,x.price,x.image_file from courses x " +
                 "join languages y on x.language_id=y.id " +
                 "where y.id=@language_id AND NOT x.id=@id;";
             return result;

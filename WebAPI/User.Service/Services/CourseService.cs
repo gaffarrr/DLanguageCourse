@@ -76,12 +76,12 @@ namespace DLanguage.Service.Services
 
         public async Task<List<CourseDisplay>> GetByCategoryExceptCurrent(int languageId, int id)
         {
-            string command = courseRepository.GetCourseById();
+            string command = courseRepository.GetCourseByCategoryExceptCurrent();
             var result = new List<CourseDisplay>();
             using (SqlCommand cmd = new SqlCommand(command, _db))
             {
                 await _db.OpenAsync();
-                cmd.Parameters.AddWithValue("@idLanguage", languageId);
+                cmd.Parameters.AddWithValue("@language_id", languageId);
                 cmd.Parameters.AddWithValue("@id", id);
                 SqlDataReader reader = await cmd.ExecuteReaderAsync();
 
@@ -90,7 +90,7 @@ namespace DLanguage.Service.Services
                     result.Add(new CourseDisplay
                     {
                         id = Convert.ToInt32(reader["id"]),
-                        language_id = Convert.ToInt32(reader["id"]),
+                        language_id = Convert.ToInt32(reader["language_id"]),
                         language_name = reader["language_name"].ToString(),
                         course_name = reader["course_name"].ToString(),
                         price = Convert.ToDecimal(reader["price"]),
