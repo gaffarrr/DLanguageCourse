@@ -11,7 +11,7 @@ namespace DLanguage.Service.Interface.Services
     {
         public Task<List<Course>> Get();
         public Task<List<CourseDisplay>> GetByCategory(int languageId);
-        public Task<List<CourseDisplayDetail>> GetById(int studentid);
+        public Task<CourseDisplayDetail> GetById(int studentid);
         public Task<List<CourseDisplay>> GetByCategoryExceptCurrent(int languageId,int id);
 
     }

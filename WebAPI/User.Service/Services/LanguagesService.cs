@@ -31,6 +31,7 @@ namespace DLanguage.Service.Services
                 SqlDataReader reader = await cmd.ExecuteReaderAsync();
                 while (reader.Read())
                 {
+                    result.id = Convert.ToInt32(reader["id"]);
                     result.language_name = reader["language_name"].ToString();
                     result.description = reader["description"].ToString();
                     result.flag = reader["flag"].ToString();
@@ -54,6 +55,7 @@ namespace DLanguage.Service.Services
                 {
                     result.Add(new Language
                     {
+                        id = Convert.ToInt32(reader["id"]),
                         language_name = reader["language_name"].ToString(),
                         flag = reader["flag"].ToString()
                     });

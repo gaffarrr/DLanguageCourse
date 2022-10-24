@@ -1,10 +1,26 @@
-import React, { Component,useState} from 'react'
+import React, { Component,useState,useEffect} from 'react'
 import { List,Box } from "@mui/material";
-
+import Axios from 'axios'
+import {useParams} from "react-router-dom"
 
 const InvoiceDetail =(id_invoice,date,total_price)=> {
 
     const [invoice,setInvoice]=useState([])
+    const GetInvoiceDetail=(id)=>{
+        Axios.get("http://localhost:5000/api/invoice/detail/"+id).
+      then((response)=>
+      {
+          if(response.status===200){
+              console.log(response.data)
+              setInvoice(response.data)
+          }
+      }).catch((err)=>{
+          console.log(err)
+      })
+    }
+    useEffect(()=>{
+      GetInvoiceDetail()//must be invoice id that is string for final
+    },[])
     return (
         <div>
             <h4 align="left">Home &gt; Invoice &gt; Details Invoice</h4>

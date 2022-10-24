@@ -33,11 +33,11 @@ namespace WebAPI.Controllers
             return await courseService.GetByCategory(language_id);
         }
         [HttpGet("detail/{id:int}")]
-        public async Task<List<CourseDisplayDetail>> GetById(int id)
+        public async Task<CourseDisplayDetail> GetById(int id)
         {
             return await courseService.GetById(id);
         }
-        [HttpGet("{languageid:int}/{id:int}")]
+        [HttpGet("{languageid:int}/except/{id:int}")]
         public async Task<List<CourseDisplay>> GetByCategoryExceptCurrent(int languageid,int id)
         {
             return await courseService.GetByCategoryExceptCurrent(languageid, id);

@@ -61,6 +61,8 @@ namespace DLanguage.Service.Services
                 {
                     result.Add(new CourseDisplay
                     {
+                        id = Convert.ToInt32(reader["id"]),
+                        language_id = Convert.ToInt32(reader["id"]),
                         language_name = reader["language_name"].ToString(),
                         course_name = reader["course_name"].ToString(),
                         price = Convert.ToDecimal(reader["price"]),
@@ -74,19 +76,21 @@ namespace DLanguage.Service.Services
 
         public async Task<List<CourseDisplay>> GetByCategoryExceptCurrent(int languageId, int id)
         {
-            string command = courseRepository.GetCourseById();
+            string command = courseRepository.GetCourseByCategoryExceptCurrent();
             var result = new List<CourseDisplay>();
             using (SqlCommand cmd = new SqlCommand(command, _db))
             {
                 await _db.OpenAsync();
+                cmd.Parameters.AddWithValue("@language_id", languageId);
                 cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@idLanguage", languageId);
                 SqlDataReader reader = await cmd.ExecuteReaderAsync();
 
                 while (reader.Read())
                 {
                     result.Add(new CourseDisplay
                     {
+                        id = Convert.ToInt32(reader["id"]),
+                        language_id = Convert.ToInt32(reader["language_id"]),
                         language_name = reader["language_name"].ToString(),
                         course_name = reader["course_name"].ToString(),
                         price = Convert.ToDecimal(reader["price"]),
@@ -98,10 +102,10 @@ namespace DLanguage.Service.Services
             return result;
         }
 
-        public async Task<List<CourseDisplayDetail>> GetById(int id)
+        public async Task<CourseDisplayDetail> GetById(int id)
         {
             string command = courseRepository.GetCourseById();
-            var result = new List<CourseDisplayDetail>();
+            var result = new CourseDisplayDetail();
             using (SqlCommand cmd = new SqlCommand(command, _db))
             {
                 await _db.OpenAsync();
@@ -110,14 +114,15 @@ namespace DLanguage.Service.Services
 
                 while (reader.Read())
                 {
-                    result.Add(new CourseDisplayDetail
-                    {
-                        language_name = reader["language_name"].ToString(),
-                        course_name = reader["course_name"].ToString(),
-                        price = Convert.ToDecimal(reader["price"]),
-                        image_file = reader["image_file"].ToString(),
-                        description = reader["description"].ToString()
-                    }); ;
+
+                    result.id = Convert.ToInt32(reader["id"]);
+                    result.language_id = Convert.ToInt32(reader["language_id"]);
+                    result.language_name = reader["language_name"].ToString();
+                    result.course_name = reader["course_name"].ToString();
+                    result.price = Convert.ToDecimal(reader["price"]);
+                    result.image_file = reader["image_file"].ToString();
+                    result.description = reader["description"].ToString();
+                    
                 }
                 await _db.CloseAsync();
             }
