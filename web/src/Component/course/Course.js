@@ -1,34 +1,86 @@
 import React, { useState, component } from "react";
 import { Grid, Box } from "@mui/material";
+import { Grid, Box ,Link,List,Collapse,ListItemButton,ListItemText} from "@mui/material";
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 import Header from '../header/Header'
 import HeaderUser from "../headerUser/HeaderUser";
 
 const CourseClass = () => {
-    const [course, setCourseName] = useState([
-        {
-            language_name: 'English',
-            course_name: 'Basic English for Junior',
-            price: 0,
-            image_file: '/EC1.png',
-            description: 'LOREM IPSUM DOLOR SIT AMET'
-        }
-    ])
-    const [othercourses, setothercourses] = useState([
-        {
-            language_name: 'English',
-            course_name: 'Basic English for Junior',
-            price: 0,
-            image_file: '/EC2.png',
-            description: 'LOREM IPSUM DOLOR SIT AMET'
-        }
-    ])
+    let id=useParams()
+    const [open,setOpen]=React.useState(false)
+    const [course, setCourseName] = useState([])
+    const [othercourses, setothercourses] = useState([])
+    const [schedule,setSchedules]=useState([])
+    const GetCourseName=(id)=>{
+        Axios.get('http://localhost:5000/api/course/detail/'+id).
+            then((response)=>
+            {
+                if(response.status===200){
+                    console.log(response.data)
+                    setCourseName(response.data)
+                }
+            }).catch((err)=>{
+                console.log(err)
+            })
+    }
+    const GetOtherCourseName=(langid,id)=>{
+        Axios.get('http://localhost:5000/api/course/'+langid+'/except/'+id).
+            then((response)=>
+            {
+                if(response.status===200){
+                    console.log(response.data)
+                    setothercourses(response.data)
+                }
+            }).catch((err)=>{
+                console.log(err)
+            })
+    }
+    const GetSchedules=(id)=>{
+        Axios.get('http://localhost:5000/api/schedule/'+id).
+            then((response)=>
+            {
+                if(response.status===200){
+                    console.log(response.data)
+                    setSchedules(response.data)
+                }
+            }).catch((err)=>{
+                console.log(err)
+            })
+    }
+    const handleClick=()=>{
+        setOpen(!open);
+    }
+    useEffect(()=>{
+        console.log(id.id)
+        GetCourseName(id.id)
+        GetOtherCourseName(id.langid,id.id)
+        GetSchedules(id.id)
+    },[])
     return (
         <div>
             <Header />
-            <img src={"images/thumbnail" + course[0].image_file}></img>
-            <h6>{course[0].language_name}</h6>
-            <h4>{course[0].course_name}</h4>
-
+            <img src={"/images/thumbnail" + course.image_file}></img>
+            <h6>{course.language_name}</h6>
+            <h4>{course.course_name}</h4>
+            <List>
+                <ListItemButton onClick={handleClick}>
+                    <ListItemText primary="Select Schedule"></ListItemText>
+                    {open? <ExpandLess/>:<ExpandMore/>}
+                </ListItemButton>
+                <Collapse in={open} timeout="auto" unmountOnExit>
+                {
+                    schedule.map((item, index) =>
+                        <List item key={index} component="div" disablePadding>
+                            <ListItemButton>
+                                {item.schedule}
+                            </ListItemButton>
+                        </List>
+                    )
+                }
+                   
+                </Collapse>
+            </List>
 
             <h3>Description</h3>
             <p>{course[0].description}</p>
