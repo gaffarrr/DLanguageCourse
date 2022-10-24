@@ -1,5 +1,5 @@
 import React, { useState, Component,useEffect} from 'react'
-import { List, Box } from "@mui/material";
+import { List, Box,Link } from "@mui/material";
 import Axios from 'axios';
 import {useParams} from "react-router-dom"
 import Header from '../header/Header';
@@ -35,7 +35,7 @@ const InvoiceList = () => {
       <Box container align="center" sx={{ display: 'list-item' }}>
         {
           invoices.map((item, index) =>
-            <List item key={index}>
+            <List item key={index}>{/**Link will be done after string management is done ***/}
               <img src={"images/thumbnail" + item.id}></img>
               <h6 align="left">{item.date}</h6>
               <h5 align="left">{item.total_course}</h5>
