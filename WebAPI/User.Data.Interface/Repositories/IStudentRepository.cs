@@ -10,6 +10,6 @@ namespace DLanguage.Data.Interface.Repositories
         public string CreateStudent();
         public string LoginStudent();
         public string UpdateStudent();
-        public string IsEmailThere();
+        public string GetPassword();
     }
 }

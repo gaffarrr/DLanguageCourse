@@ -19,3 +19,24 @@ C:\Users\bhira\Documents\Project Folder\Gitlab\DLanguageCourse\WebAPI\User.Data.
 C:\Users\bhira\Documents\Project Folder\Gitlab\DLanguageCourse\WebAPI\User.Data.Interface\obj\Debug\net6.0\DLanguage.Data.Interface.pdb
 C:\Users\bhira\Documents\Project Folder\Gitlab\DLanguageCourse\WebAPI\User.Data.Interface\obj\Debug\net6.0\DLanguage.Data.Interface.genruntimeconfig.cache
 C:\Users\bhira\Documents\Project Folder\Gitlab\DLanguageCourse\WebAPI\User.Data.Interface\obj\Debug\net6.0\ref\DLanguage.Data.Interface.dll
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\bin\Debug\net6.0\DLanguage.Data.Interface.exe
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\bin\Debug\net6.0\DLanguage.Data.Interface.deps.json
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\bin\Debug\net6.0\DLanguage.Data.Interface.runtimeconfig.json
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\bin\Debug\net6.0\DLanguage.Data.Interface.dll
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\bin\Debug\net6.0\DLanguage.Data.Interface.pdb
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\obj\Debug\net6.0\DLanguage.Data.Interface.csproj.AssemblyReference.cache
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\obj\Debug\net6.0\DLanguage.Data.Interface.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\obj\Debug\net6.0\DLanguage.Data.Interface.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\obj\Debug\net6.0\DLanguage.Data.Interface.AssemblyInfo.cs
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\obj\Debug\net6.0\DLanguage.Data.Interface.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\obj\Debug\net6.0\DLanguage.Data.Interface.csproj.CopyComplete
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\obj\Debug\net6.0\DLanguage.Data.Interface.dll
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\obj\Debug\net6.0\refint\DLanguage.Data.Interface.dll
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\obj\Debug\net6.0\DLanguage.Data.Interface.pdb
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\obj\Debug\net6.0\DLanguage.Data.Interface.genruntimeconfig.cache
+C:\Users\Administrator\Documents\GitLab\DLanguageCourse\WebAPI\User.Data.Interface\obj\Debug\net6.0\ref\DLanguage.Data.Interface.dll

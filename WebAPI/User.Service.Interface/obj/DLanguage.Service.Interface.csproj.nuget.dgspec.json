@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Service.Interface\\DLanguage.Service.Interface.csproj": {}
+    "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Service.Interface\\DLanguage.Service.Interface.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Model\\DLanguage.Model.csproj": {
+    "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Model\\DLanguage.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Model\\DLanguage.Model.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Model\\DLanguage.Model.csproj",
         "projectName": "DLanguage.Model",
-        "projectPath": "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Model\\DLanguage.Model.csproj",
-        "packagesPath": "C:\\Users\\bhira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Model\\obj\\",
+        "projectPath": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Model\\DLanguage.Model.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bhira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -65,21 +65,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Service.Interface\\DLanguage.Service.Interface.csproj": {
+    "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Service.Interface\\DLanguage.Service.Interface.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Service.Interface\\DLanguage.Service.Interface.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Service.Interface\\DLanguage.Service.Interface.csproj",
         "projectName": "DLanguage.Service.Interface",
-        "projectPath": "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Service.Interface\\DLanguage.Service.Interface.csproj",
-        "packagesPath": "C:\\Users\\bhira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Service.Interface\\obj\\",
+        "projectPath": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Service.Interface\\DLanguage.Service.Interface.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Service.Interface\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bhira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,8 +93,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Model\\DLanguage.Model.csproj": {
-                "projectPath": "C:\\Users\\bhira\\Documents\\Project Folder\\Gitlab\\DLanguageCourse\\WebAPI\\User.Model\\DLanguage.Model.csproj"
+              "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Model\\DLanguage.Model.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Model\\DLanguage.Model.csproj"
               }
             }
           }
@@ -109,6 +109,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[6.0.1, )"
@@ -138,7 +142,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

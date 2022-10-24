@@ -1,6 +1,9 @@
 ﻿using DLanguage.Data.Interface.Repositories;
 using DLanguage.Model.Entities;
+using DLanguage.Model.Entities.SubEntities;
 using DLanguage.Service.Interface.Services;
+using Microsoft.AspNetCore.Mvc;
+using Org.BouncyCastle.Crypto.Generators;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -16,12 +19,13 @@ namespace DLanguage.Service.Services
         public StudentService(IStudentRepository studentRepository)
         {
             this.studentRepository = studentRepository;
-            _db = new SqlConnection("Server=localhost;Database=learning_db;User Id=sa;Password=root;");
+            _db = new SqlConnection("server=WIN-NT1UOBQHVE3\\GGP;database=learning_db; integrated security=true");
         }
 
-        public async Task<bool> CreateStudent(Student student)
+        public async Task<bool> CreateStudent([FromBody] Student student)
         {
             var command = studentRepository.CreateStudent();
+            string pwdHashed = BCrypt.Net.BCrypt.HashPassword(student.password);
             using (SqlCommand cmd = new SqlCommand(command, _db))
             {
                 cmd.Parameters.AddWithValue("@name", student.name);
@@ -34,60 +38,65 @@ namespace DLanguage.Service.Services
             return true;
         }
 
-        public async Task<bool> IsEmailThere(string email)
+        public async Task<List<UserLogin>> GetPass(string email)
         {
-            var command = studentRepository.IsEmailThere();
+            string command = studentRepository.GetPassword();
+            var result = new List<UserLogin>();
             using (SqlCommand cmd = new SqlCommand(command, _db))
             {
-                cmd.Parameters.AddWithValue("@email", email);
                 await _db.OpenAsync();
+                cmd.Parameters.AddWithValue("@Email", email);
                 SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
                 while (reader.Read())
                 {
-                    if (Convert.ToInt16(reader["count(1)"]) == 1)
+                    result.Add(new UserLogin
                     {
-                        return true;
-                    }
+                        email = reader["Email"].ToString(),
+                        password = reader["Password"].ToString(),
+                    });
                 }
                 await _db.CloseAsync();
             }
-            return false;
+            return result;
         }
 
-        public async Task<bool> LoginStudent(string email, string password)
+        public async Task<string> LoginStudent([FromBody] UserLogin student)
         {
             var command = studentRepository.LoginStudent();
-            using(SqlCommand cmd = new SqlCommand(command, _db))
+            string result = "";
+            using (SqlCommand cmd = new SqlCommand(command, _db))
             {
-                cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@password", password);
                 await _db.OpenAsync();
+                cmd.Parameters.AddWithValue("@email", student.email);
                 SqlDataReader reader = await cmd.ExecuteReaderAsync();
                 while (reader.Read())
                 {
                     string resEmail = reader["email"].ToString();
                     string resPassword = reader["password"].ToString();
-                    if (resEmail == email && resPassword == password)
+                    if (resEmail == student.email && BCrypt.Net.BCrypt.Verify(student.password, resPassword) == true)
                     {
-                        return true;
+                        result = "You've been logged in";
                     }
                     else
                     {
-                        return false;
+                        result = "Account Invalid!";
                     }
                 }
                 await _db.CloseAsync();
-                return false;
+
             }
+            return result;
         }
 
-        public async Task<bool> UpdateStudent(int id, string password)
+        public async Task<bool> UpdateStudent([FromBody] UserLogin student)
         {
             var command = studentRepository.UpdateStudent();
-            using(SqlCommand cmd=new SqlCommand(command, _db))
+            string pwdHashed = BCrypt.Net.BCrypt.HashPassword(student.password);
+            using (SqlCommand cmd = new SqlCommand(command, _db))
             {
-                cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@password", password);
+                cmd.Parameters.AddWithValue("@email", student.email);
+                cmd.Parameters.AddWithValue("@password", pwdHashed);
                 await _db.OpenAsync();
                 await cmd.ExecuteNonQueryAsync();
                 await _db.CloseAsync();

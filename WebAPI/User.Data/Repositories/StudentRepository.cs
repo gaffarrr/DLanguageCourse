@@ -15,7 +15,7 @@ namespace DLanguage.Data.Repositories
             return result;
         }
 
-        public string IsEmailThere()
+        public string GetPassword()
         {
             var result = "select count(1) from students where email=@email";
             return result;
