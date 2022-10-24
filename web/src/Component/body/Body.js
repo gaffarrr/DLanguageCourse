@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import '@fontsource/montserrat'
 import { borderRadius } from '@mui/system'
-import { AppBar, CardActionArea, cardClasses } from '@mui/material'
+import { AppBar, CardActionArea, cardClasses ,Link} from '@mui/material'
 import Container from '@mui/system/Container'
 import Background from '../../Assets/Landing/bgLanding.png'
 import Card from '@mui/material/Card'
@@ -112,20 +112,23 @@ const Body = () => {
                         
                     {courses.map((item, index) =>
                         <Grid item key={index} xs={12} sm={6} md={4}>
-                            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                                <CardActionArea>
-                                    <CardMedia>
+                            <Link href={"/Languages/"+item.language_id+"/course/"+item.id}>
+                                <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                                    <CardActionArea>
+                                    
                                         <CardMedia>
-                                            <img src={"images/Thumbnail" + item.image_file} style={{ height: '175px' }}></img>
+                                            <CardMedia>
+                                                <img src={"images/Thumbnail" + item.image_file} style={{ height: '175px' }}></img>
+                                            </CardMedia>
+                                            <CardContent>
+                                                <h6 align="left">{item.language_name}</h6>
+                                                <h5 align="left">{item.course_name}</h5>
+                                                <p align="left">IDR {item.price}</p>
+                                            </CardContent>
                                         </CardMedia>
-                                        <CardContent>
-                                            <h6 align="left">{item.language_name}</h6>
-                                            <h5 align="left">{item.course_name}</h5>
-                                            <p align="left">IDR {item.price}</p>
-                                        </CardContent>
-                                    </CardMedia>
-                                </CardActionArea>
-                            </Card>
+                                    </CardActionArea>
+                                </Card>
+                            </Link>
                         </Grid>
                     )}
                 </Grid>
@@ -147,18 +150,20 @@ const Body = () => {
                 <Grid container spacing={1}>
                     {language.map((item, index) =>
                         <Grid item key={index} xs={12} sm={6} md={3}>
-                            <Card sx={{ height: '90%', width: '90%', display: 'flex', flexDirection: 'column' }}>
-                                <CardActionArea>
-                                    <CardMedia>
+                            <Link href={"/Languages/"+item.id}>
+                                <Card sx={{ height: '90%', width: '90%', display: 'flex', flexDirection: 'column' }}>
+                                    <CardActionArea>
                                         <CardMedia>
-                                            <img src={"images/flags" + item.flag} style={{ height: '110px', marginTop: '10px' }}></img>
+                                            <CardMedia>
+                                                <img src={"images/flags" + item.flag} style={{ height: '110px', marginTop: '10px' }}></img>
+                                            </CardMedia>
+                                            <CardContent>
+                                                <h2 align="center" style={{ fontFamily: 'Montserrat' }}>{item.language_name}</h2>
+                                            </CardContent>
                                         </CardMedia>
-                                        <CardContent>
-                                            <h2 align="center" style={{ fontFamily: 'Montserrat' }}>{item.language_name}</h2>
-                                        </CardContent>
-                                    </CardMedia>
-                                </CardActionArea>
-                            </Card>
+                                    </CardActionArea>
+                                </Card>
+                            </Link>
                         </Grid>
                     )}
                 </Grid>

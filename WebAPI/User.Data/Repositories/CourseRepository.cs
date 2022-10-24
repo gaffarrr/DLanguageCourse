@@ -11,13 +11,13 @@ namespace DLanguage.Data.Repositories
     {
         public string GetCourse()
         {
-            var result = "select id,course_name,language_id,price,image_file,description from courses";
+            var result = "select id,language_id,course_name,language_id,price,image_file,description from courses";
             return result;
         }
 
         public string GetCourseByCategory()
         {
-            var result = "select y.language_name, x.course_name,x.price,x.image_file from courses x " +
+            var result = "select x.id, y.language_name, x.course_name,x.price,x.image_file from courses x " +
                 "join languages y on x.language_id=y.id " +
                 "where y.id=@language_id;";
             return result;
@@ -25,15 +25,15 @@ namespace DLanguage.Data.Repositories
 
         public string GetCourseByCategoryExceptCurrent()
         {
-            var result = "select y.language_name, x.course_name,x.price,x.image_file from courses x " +
+            var result = "select x.id,x.language_id, y.language_name, x.course_name,x.price,x.image_file from courses x " +
                 "join languages y on x.language_id=y.id " +
-                "where y.id=@language_id NOT x.id=@id;";
+                "where y.id=@language_id AND NOT x.id=@id;";
             return result;
         }
 
         public string GetCourseById()
         {
-            var result = "select y.language_name, x.course_name,x.price,x.image_file,x.description " +
+            var result = "select x.id,x.language_id, y.language_name, x.course_name,x.price,x.image_file,x.description " +
                 "from courses x join languages y on x.language_id=y.id " +
                 "where x.id=@id;";
             return result;
