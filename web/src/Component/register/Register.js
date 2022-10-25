@@ -1,34 +1,89 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Header from '../header/Header'
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { maxWidth } from '@mui/system';
+import { TokenContext } from '../context/TokenContext';
+import Http from '../axios/Config';
+import { Navigate, Link } from 'react-router-dom';
+import { ValidateEmail } from './Validation';
 
 const Register = () => {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget)
-        console.log({
-            email: data.get('email'),
-            password: data.get('password')
-        })
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const [errorMsg, setErrorMsg] = useState('')
+
+    const { setToken } = useContext(TokenContext)
+
+    const handleInputChange = (e) => {
+        const { id, value } = e.target;
+        if (id === "name") {
+            setName(value)
+        }
+        if (id === "email") {
+            setEmail(value)
+        }
+        if (id === "password") {
+            setPassword(value)
+        }
+        if (id === "confirm") {
+            setConfirmPassword(value)
+        }
     }
 
-    const [values, setValues] = useState({
-        amount: '',
-        password: '',
-        weight: '',
-        weightRange: '',
-        showPassword: false
-    })
+    const clearData = () => {
+        setConfirmPassword('')
+        setName('')
+        setErrorMsg('')
+        setPassword('')
+        setEmail('')
+    }
+
+    const handleSubmit = () => {
+        if (name === '' || email === '' || password === '') {
+            setErrorMsg('Field Cannot Be Empty!')
+            return;
+        }
+        if (password !== confirmPassword) {
+            setErrorMsg('Password Does Not Match!')
+            return;
+        }
+        if (ValidateEmail(email) === false) {
+            setErrorMsg('Email Format Invalid!')
+            return;
+        }
+        const userData = {
+            name: name,
+            email: email,
+            password: password
+        }
+        console.log(userData)
+        clearData() 
+        Http.post('Student/Register', userData)
+            .then((res) => {
+                if (res.status === 200) {
+                    Http.post('Student/Login', userData)
+                        .then((response) => {
+                            if (response.status === 200) {
+                                setToken(response.data.token)
+                                Navigate('/')
+                            }
+                        }
+                        ).catch((error) => {
+                            if (error) {
+                                console.log(error)
+                            }
+                        })
+                }
+            }).catch((err) => {
+                console.log('There was an error!', err)
+            })
+    }
 
     return (
         <div alignItems='center'>
@@ -51,49 +106,52 @@ const Register = () => {
                         <Grid mt='10px' width='700px'>
                             <Grid item xs={12} sm={6}>
                                 <TextField
-                                    name="name"
                                     required
                                     fullWidth
                                     id='name'
                                     label='Name'
-                                    autoFocus
                                     size='small'
+                                    value={name}
+                                    onChange={(e) => handleInputChange(e)}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6} mt='15px'>
                                 <TextField
-                                    name="email"
+                                    type='email'
                                     required
                                     fullWidth
                                     id='email'
                                     label='Email'
-                                    autoFocus
                                     size='small'
+                                    value={email}
+                                    onChange={(e) => handleInputChange(e)}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6} mt='15px'>
                                 <TextField
                                     type='password'
-                                    name="password"
                                     required
                                     fullWidth
                                     id='password'
                                     label='Password'
-                                    autoFocus
                                     size='small'
+                                    value={password}
+                                    onChange={(e) => handleInputChange(e)}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6} mt='15px'>
                                 <TextField
-                                    name="confPassword"
+                                    type='password'
                                     required
                                     fullWidth
-                                    id='confPassword'
+                                    id='confirm'
                                     label='Confirm Password'
-                                    autoFocus
                                     size='small'
+                                    value={confirmPassword}
+                                    onChange={(e) => handleInputChange(e)}
                                 />
                             </Grid>
+                            <p style={{ color: "red", textAlign: 'left', marginTop: '20px' }}>{errorMsg}</p>
                         </Grid>
                         <Grid container justifyContent='flex-end'>
                             <Button type='submit' sx={{ justifyContent: 'flex-end', bgcolor: '#226957', marginTop: '50px' }} variant='contained'>Sign Up</Button>

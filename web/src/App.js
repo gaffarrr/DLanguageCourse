@@ -16,6 +16,7 @@ import Login from './Component/login/Login';
 import Checkout from './Component/checkout/Checkout';
 import ForgotPassword from './Component/forgotPassword/ForgotPassword';
 import ResetPassword from './Component/resetPassword/ResetPassword';
+import LandingPage from './Component/landingPage/LandingPage';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path='/' element={<Body></Body>}></Route>
+          <Route path='/' element={<LandingPage></LandingPage>}></Route>
           <Route path='/YourClasses' element={<ClassList></ClassList>}></Route>
           <Route path='/Languages/:id' element={<LanguageClass></LanguageClass>}></Route>
           <Route path='/languages/:langid/Course/:id' element={<Course></Course>}></Route>

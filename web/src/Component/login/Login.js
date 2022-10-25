@@ -1,25 +1,62 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import Header from '../header/Header'
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { maxWidth } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
+import { TokenContext } from '../context/TokenContext';
+import { ValidateEmail } from '../register/Validation';
+import Http from '../axios/Config';
 
 const Login = () => {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget)
-        console.log({
-            email: data.get('email'),
-            password: data.get('password')
-        })
+    const navigate = useNavigate()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [errorMsg, setErrorMsg] = useState('')
+
+    const { setToken } = useContext(TokenContext)
+
+    const handleInputChange = (e) => {
+        const { id, value } = e.target
+        if (id === "email") {
+            setEmail(value)
+        }
+        if (id === "password") {
+            setPassword(value)
+        }
+    }
+    const clearData = () => {
+        setErrorMsg('')
+        setEmail('')
+        setPassword('')
+    }
+
+    const handleSubmit = () => {
+        if (ValidateEmail(email) === false) {
+            setErrorMsg('Email Invalid!')
+            return
+        }
+
+        const userData = {
+            email: email,
+            password: password
+        }
+        clearData()
+        Http.post('/Login', userData)
+            .then((res) => {
+                if (res.status === 200) {
+                    setToken(res.data.token)
+                    navigate('/')
+                }
+            }).catch((err) => {
+                if (err.response.status === 400) {
+                    setErrorMsg('Email or Password Invalid')
+                    console.log('HELP!', err)
+                }
+            })
     }
 
     return (

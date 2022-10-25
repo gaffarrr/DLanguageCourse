@@ -3,6 +3,7 @@ using DLanguage.Model.Entities;
 using DLanguage.Model.Entities.SubEntities;
 using DLanguage.Service.Interface.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Org.BouncyCastle.Crypto.Generators;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,10 @@ namespace DLanguage.Service.Services
     {
         private readonly IStudentRepository studentRepository;
         private readonly SqlConnection _db;
-        public StudentService(IStudentRepository studentRepository)
+        public StudentService(IStudentRepository studentRepository, IConfiguration configuration)
         {
             this.studentRepository = studentRepository;
-            _db = new SqlConnection("server=WIN-NT1UOBQHVE3\\GGP;database=learning_db; integrated security=true");
+            _db = new SqlConnection(configuration.GetConnectionString("LanguageAppCon"));
         }
 
         public async Task<bool> CreateStudent([FromBody] Student student)
@@ -30,7 +31,7 @@ namespace DLanguage.Service.Services
             {
                 cmd.Parameters.AddWithValue("@name", student.name);
                 cmd.Parameters.AddWithValue("@email", student.email);
-                cmd.Parameters.AddWithValue("@password", student.password);
+                cmd.Parameters.AddWithValue("@password", pwdHashed);
                 await _db.OpenAsync();
                 await cmd.ExecuteNonQueryAsync();
                 await _db.CloseAsync();

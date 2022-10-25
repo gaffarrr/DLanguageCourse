@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import '@fontsource/montserrat'
 import { borderRadius } from '@mui/system'
-import { AppBar, CardActionArea, cardClasses ,Link} from '@mui/material'
+import { AppBar, CardActionArea, cardClasses, Link } from '@mui/material'
 import Container from '@mui/system/Container'
 import Background from '../../Assets/Landing/bgLanding.png'
 import Card from '@mui/material/Card'
@@ -27,34 +27,32 @@ const Body = () => {
     const [courses, setcourses] = useState([])
 
     const [language, setLanguage] = useState([
-        
+
     ])
-    const GetFlag = () =>{
+    const GetFlag = () => {
         Axios.get('http://localhost:5000/api/language/flags').
-            then((response)=>
-            {
-                if(response.status==200){
+            then((response) => {
+                if (response.status == 200) {
                     console.log(response.data)
                     setLanguage(response.data)
                 }
-            }).catch((err)=>{
+            }).catch((err) => {
                 console.log(err)
             })
     }
-    const GetCourse = () =>{
+    const GetCourse = () => {
         Axios.get('http://localhost:5000/api/course/courses').
-            then((response)=>
-            {
-                if(response.status==200){
+            then((response) => {
+                if (response.status == 200) {
                     console.log(response.data)
                     setcourses(response.data)
                 }
-            }).catch((err)=>{
+            }).catch((err) => {
                 console.log(err)
             })
     }
 
-    
+
 
 
     const styles = {
@@ -64,14 +62,13 @@ const Body = () => {
             padding: '30px'
         }
     }
-    useEffect(()=>{
+    useEffect(() => {
         GetFlag()
         GetCourse()
-    },[])
-    
+    }, [])
+
     return (
         <div>
-            <Header></Header>
             <Box style={styles.heroContainer}>
                 <Box align='center'>
                     <Typography
@@ -109,13 +106,13 @@ const Body = () => {
             <Container sx={{ py: 8 }} maxWidth="md">
                 <Typography marginBottom={4} color='#226957' fontWeight='bold' variant='h6' fontFamily='Montserrat'>Recommended Class</Typography>
                 <Grid container spacing={4}>
-                        
+
                     {courses.map((item, index) =>
                         <Grid item key={index} xs={12} sm={6} md={4}>
-                            <Link href={"/Languages/"+item.language_id+"/course/"+item.id}>
+                            <Link href={"/Languages/" + item.language_id + "/course/" + item.id}>
                                 <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                                     <CardActionArea>
-                                    
+
                                         <CardMedia>
                                             <CardMedia>
                                                 <img src={"images/Thumbnail" + item.image_file} style={{ height: '175px' }}></img>
@@ -150,7 +147,7 @@ const Body = () => {
                 <Grid container spacing={1}>
                     {language.map((item, index) =>
                         <Grid item key={index} xs={12} sm={6} md={3}>
-                            <Link href={"/Languages/"+item.id}>
+                            <Link href={"/Languages/" + item.id}>
                                 <Card sx={{ height: '90%', width: '90%', display: 'flex', flexDirection: 'column' }}>
                                     <CardActionArea>
                                         <CardMedia>
