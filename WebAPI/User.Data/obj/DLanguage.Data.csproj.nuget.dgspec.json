@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Data\\DLanguage.Data.csproj": {}
+    "C:\\Users\\Administrator\\Documents\\GitHub\\DLanguageCourse\\WebAPI\\User.Data\\DLanguage.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Data.Interface\\DLanguage.Data.Interface.csproj": {
+    "C:\\Users\\Administrator\\Documents\\GitHub\\DLanguageCourse\\WebAPI\\User.Data.Interface\\DLanguage.Data.Interface.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Data.Interface\\DLanguage.Data.Interface.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitHub\\DLanguageCourse\\WebAPI\\User.Data.Interface\\DLanguage.Data.Interface.csproj",
         "projectName": "DLanguage.Data.Interface",
-        "projectPath": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Data.Interface\\DLanguage.Data.Interface.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\DLanguageCourse\\WebAPI\\User.Data.Interface\\DLanguage.Data.Interface.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Data.Interface\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Documents\\GitHub\\DLanguageCourse\\WebAPI\\User.Data.Interface\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Data\\DLanguage.Data.csproj": {
+    "C:\\Users\\Administrator\\Documents\\GitHub\\DLanguageCourse\\WebAPI\\User.Data\\DLanguage.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Data\\DLanguage.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitHub\\DLanguageCourse\\WebAPI\\User.Data\\DLanguage.Data.csproj",
         "projectName": "DLanguage.Data",
-        "projectPath": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Data\\DLanguage.Data.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\DLanguageCourse\\WebAPI\\User.Data\\DLanguage.Data.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Data\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Documents\\GitHub\\DLanguageCourse\\WebAPI\\User.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -93,8 +93,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Data.Interface\\DLanguage.Data.Interface.csproj": {
-                "projectPath": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Data.Interface\\DLanguage.Data.Interface.csproj"
+              "C:\\Users\\Administrator\\Documents\\GitHub\\DLanguageCourse\\WebAPI\\User.Data.Interface\\DLanguage.Data.Interface.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\DLanguageCourse\\WebAPI\\User.Data.Interface\\DLanguage.Data.Interface.csproj"
               }
             }
           }

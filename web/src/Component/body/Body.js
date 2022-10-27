@@ -21,7 +21,7 @@ import flagMedia from '../flag/flagMedia'
 import Footer from '../footer/Footer'
 import Header from '../header/Header'
 import HeaderUser from '../headerUser/HeaderUser'
-import Axios from 'axios'
+import Http from '../axios/Config';
 
 const Body = () => {
     const [courses, setcourses] = useState([])
@@ -30,7 +30,7 @@ const Body = () => {
 
     ])
     const GetFlag = () => {
-        Axios.get('http://localhost:5000/api/language/flags').
+        Http.get('Language/flags').
             then((response) => {
                 if (response.status == 200) {
                     console.log(response.data)
@@ -41,7 +41,7 @@ const Body = () => {
             })
     }
     const GetCourse = () => {
-        Axios.get('http://localhost:5000/api/course/courses').
+        Http.get('Course/courses').
             then((response) => {
                 if (response.status == 200) {
                     console.log(response.data)
@@ -51,9 +51,6 @@ const Body = () => {
                 console.log(err)
             })
     }
-
-
-
 
     const styles = {
         heroContainer: {
@@ -165,7 +162,6 @@ const Body = () => {
                     )}
                 </Grid>
             </Container>
-            <Footer></Footer>
         </div >
     )
 }

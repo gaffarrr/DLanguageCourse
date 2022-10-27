@@ -17,19 +17,19 @@ namespace DLanguage.Data.Repositories
 
         public string GetPassword()
         {
-            var result = "select count(1) from students where email=@email";
+            var result = "select top 1 email, password from students where email=@email";
             return result;
         }
 
         public string LoginStudent()
         {
-            var result = "SELECT * FROM students WHERE email = @email AND password = @password";
+            var result = "SELECT * FROM students WHERE email = @email";
             return result;
         }
 
         public string UpdateStudent()
         {
-            var result = "update students set password=@password where id=@id";
+            var result = "update students set password=@password where email=@email";
             return result;
         }
         

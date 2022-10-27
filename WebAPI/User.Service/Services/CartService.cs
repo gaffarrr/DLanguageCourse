@@ -2,8 +2,10 @@
 using DLanguage.Model.Entities;
 using DLanguage.Model.Entities.SubEntities;
 using DLanguage.Service.Interface.Services;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -15,10 +17,10 @@ namespace DLanguage.Service.Services
     {
         private readonly ICartRepository cartRepository;
         private readonly SqlConnection _db;
-        public CartService(ICartRepository cartRepository)
+        public CartService(ICartRepository cartRepository, IConfiguration configuration)
         {
             this.cartRepository = cartRepository;
-            _db = new SqlConnection("Server=localhost;Database=learning_db;User Id=sa;Password=root;");
+            _db = new SqlConnection(configuration.GetConnectionString("LanguageAppCon"));
         }
 
         public async Task<bool> CreateCart(Cart cart)

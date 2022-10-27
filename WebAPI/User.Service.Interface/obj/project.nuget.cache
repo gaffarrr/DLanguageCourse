@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "189+NJGK7gXvNOXzQdZk8r/CG0CtQeDw49XY9LUf2P2uSpoeJbcVJFY8pO2wCPD4O/4pI0NOB8seiTg0f3YOxw==",
+  "dgSpecHash": "uvJFURa/+iQaK2j6YcsGnZGz1/wi7pS0klyrS6JgX/Hmgjjddt/3bw7+alJG2Whl4eFixqlPO7lAw779KtVuZg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Service.Interface\\DLanguage.Service.Interface.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\Documents\\GitHub\\DLanguageCourse\\WebAPI\\User.Service.Interface\\DLanguage.Service.Interface.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

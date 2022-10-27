@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DXagHqYtgONkTnNbVXS0XgipM+kVplkqXXqo+59lD/67zp8PHjziklgnEnjx4CtCvaWYkwbd9JpkeAy1msUbAA==",
+  "dgSpecHash": "cszTGVEl4radut5IdsdMxFNCeGGhtM0cqEvs73RBsSWXBJWm0e78CedXXUaFsYZA/2EvCuYJsQG2Cs3m/rNlhw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Service\\DLanguage.Service.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\Documents\\GitHub\\DLanguageCourse\\WebAPI\\User.Service\\DLanguage.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",

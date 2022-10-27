@@ -17,6 +17,7 @@ import Checkout from './Component/checkout/Checkout';
 import ForgotPassword from './Component/forgotPassword/ForgotPassword';
 import ResetPassword from './Component/resetPassword/ResetPassword';
 import LandingPage from './Component/landingPage/LandingPage';
+import LanguagePage from './Component/language/LanguagePage';
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage></LandingPage>}></Route>
           <Route path='/YourClasses' element={<ClassList></ClassList>}></Route>
-          <Route path='/Languages/:id' element={<LanguageClass></LanguageClass>}></Route>
+          <Route path='/Languages/:id' element={<LanguagePage />}></Route>
           <Route path='/languages/:langid/Course/:id' element={<Course></Course>}></Route>
           <Route path='/InvoiceList' element={<InvoiceList></InvoiceList>}></Route>
           <Route path='/InvoiceDetail' element={<InvoiceDetail></InvoiceDetail>}></Route>
@@ -35,7 +36,7 @@ function App() {
           <Route path='/register' element={<Register></Register>}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/forgotPassword' element={<ForgotPassword />}></Route>
-          <Route path='/forgotPassword/reset' element={<ResetPassword />}></Route>
+          <Route path='/forgotPassword/resetpassword' element={<ResetPassword />}></Route>
           <Route path='/checkout' element={<Checkout />}></Route>
 
         </Routes>

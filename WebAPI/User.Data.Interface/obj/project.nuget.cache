@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q59IVmeP7DhneVUkLlg/1vdVzW3+875IipdA65X00Sj9k8v0U9tSSBaWzcgKRVdYwsssfBoEeJHwk8vgyq9I2g==",
+  "dgSpecHash": "mgEcen84TbKb1Fyo+nOYFVC+wI0c3pGEpiIF3NjNytHUwh7CjbCgLKx3LsThzNamGon+xJiSAG/cSB/dApTvlQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Documents\\GitLab\\DLanguageCourse\\WebAPI\\User.Data.Interface\\DLanguage.Data.Interface.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\Documents\\GitHub\\DLanguageCourse\\WebAPI\\User.Data.Interface\\DLanguage.Data.Interface.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.1\\microsoft.extensions.configuration.6.0.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",

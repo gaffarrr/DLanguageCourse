@@ -45,18 +45,19 @@ const Login = () => {
             password: password
         }
         clearData()
-        Http.post('/Login', userData)
+        Http.post('Student/Login', userData)
             .then((res) => {
                 if (res.status === 200) {
                     setToken(res.data.token)
                     navigate('/')
                 }
             }).catch((err) => {
-                if (err.response.status === 400) {
+                if (err.response.status === 401) {
                     setErrorMsg('Email or Password Invalid')
                     console.log('HELP!', err)
                 }
             })
+
     }
 
     return (
@@ -68,7 +69,7 @@ const Login = () => {
                 flexDirection: 'column',
                 alignItems: 'center'
             }}>
-                <Box component='form' noValidate onSubmit={handleSubmit} mt='3px' maxWidth='1000px'>
+                <Box mt='3px' maxWidth='1000px'>
 
                     <Grid container display='flex' flexDirection='column' alignItems='flex-start' justifyContent='left'>
                         <Typography>Lets Join</Typography>
@@ -77,27 +78,29 @@ const Login = () => {
                     <Grid mt='10px' width='700px'>
                         <Grid item xs={12} sm={6} mt='15px'>
                             <TextField
-                                name="email"
+                                type='email'
                                 required
                                 fullWidth
                                 id='email'
                                 label='Email'
-                                autoFocus
                                 size='small'
+                                value={email}
+                                onChange={(e) => handleInputChange(e)}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6} mt='15px'>
                             <TextField
                                 type='password'
-                                name="password"
                                 required
                                 fullWidth
                                 id='password'
                                 label='Password'
-                                autoFocus
                                 size='small'
+                                value={password}
+                                onChange={(e) => handleInputChange(e)}
                             />
                         </Grid>
+                        <p style={{ color: "red", textAlign: 'left', marginTop: '20px' }}>{errorMsg}</p>
                     </Grid>
                     <Grid container mt='80px' justifyContent="left">
                         <Grid item>
@@ -108,7 +111,7 @@ const Login = () => {
                         </Grid>
                     </Grid>
                     <Grid container justifyContent='flex-end'>
-                        <Button type='submit' sx={{ justifyContent: 'flex-end', bgcolor: '#226957', marginTop: '50px' }} variant='contained'>Login</Button>
+                        <Button onClick={() => handleSubmit()} type='submit' sx={{ justifyContent: 'flex-end', bgcolor: '#226957' }} variant='contained'>Login</Button>
                     </Grid>
                     <Grid container mt='80px' justifyContent="center">
                         <Grid item>

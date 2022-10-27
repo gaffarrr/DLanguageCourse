@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -7,19 +7,69 @@ import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { maxWidth } from '@mui/system';
+import { TokenContext } from '../context/TokenContext';
+import Http from '../axios/Config';
 import Header from '../header/Header';
 import Button from '@mui/material/Button';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { getListItemAvatarUtilityClass } from '@mui/material';
 
 const ResetPassword = () => {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget)
-        console.log({
-            newPassword: data.get('newPassword'),
-            confNewPassword: data.get('confNewPassword')
-        })
+    const location = useLocation()
+    const navigate = useNavigate()
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('')
+    const [errorMsg, setErrorMsg] = useState('')
+    let mail = ''
+
+    useEffect(() => {
+        getEmail()
+    }, [])
+
+    const getEmail = () => {
+        mail = location.state[0].email
+        setEmail(mail)
+    }
+
+    const handleInputChange = (e) => {
+        const { id, value } = e.target;
+        if (id === "confirmPassword") {
+            setConfirmPassword(value)
+        }
+        if (id === "password") {
+            setPassword(value)
+        }
+    }
+
+    const clearData = () => {
+        setErrorMsg('')
+        setConfirmPassword('')
+        setPassword('')
+    }
+
+    const handleSubmit = () => {
+        if (password !== confirmPassword) {
+            setErrorMsg('Password Does Not Match')
+            return;
+        }
+        const userData = {
+            email: email,
+            password: password
+        }
+        clearData()
+        Http.put('/Student/ResetPassword/NewPass', userData)
+            .then((res) => {
+                if (res.status === 200) {
+                    console.log(userData)
+                    navigate('/login')
+                }
+            }
+            ).catch((err) => {
+                if (err.response.status == 401) {
+                    console.log('HELP!', err)
+                }
+            })
     }
 
     return (
@@ -31,40 +81,41 @@ const ResetPassword = () => {
                 flexDirection: 'column',
                 alignItems: 'center'
             }}>
-                <Box component='form' noValidate onSubmit={handleSubmit} mt='3px' maxWidth='1000px'>
+                <Box mt='3px' maxWidth='1000px'>
 
                     <Grid container display='flex' flexDirection='column' alignItems='flex-start' justifyContent='left'>
                         <Typography>Create Password</Typography>
                     </Grid>
-                    <Grid mt='10px' width='700px'>
-                        <Grid item xs={12} sm={6} mt='15px'>
+                    <Grid container mt='10px' width='700px' rowSpacing={2}>
+                        <Grid item xs={20}>
                             <TextField
                                 type='password'
-                                name="newPassword"
                                 required
                                 fullWidth
-                                id='newPassword'
-                                label='New Password'
-                                autoFocus
+                                id='password'
+                                label='Password'
                                 size='small'
+                                value={password}
+                                onChange={(e) => handleInputChange(e)}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={6} mt='15px'>
+                        <Grid item xs={20}>
                             <TextField
                                 type='password'
-                                name="confNewPassword"
                                 required
                                 fullWidth
-                                id='confNewPassword'
-                                label='Confirm New Password'
-                                autoFocus
+                                id='confirmPassword'
+                                label='Confirm Password'
                                 size='small'
+                                value={confirmPassword}
+                                onChange={(e) => handleInputChange(e)}
                             />
                         </Grid>
                     </Grid>
+                    <p style={{ color: "red", textAlign: 'left', marginTop: '20px' }}>{errorMsg}</p>
                     <Grid container justifyContent='flex-end' gap={2}>
                         <Button href="/" sx={{ justifyContent: 'flex-end', bgcolor: '#EA9E1F', marginTop: '50px' }} variant='contained'>Cancel</Button>
-                        <Button type='submit' sx={{ justifyContent: 'flex-end', bgcolor: '#226957', marginTop: '50px' }} variant='contained'>Confirm</Button>
+                        <Button onClick={() => handleSubmit()} type='submit' sx={{ justifyContent: 'flex-end', bgcolor: '#226957', marginTop: '50px' }} variant='contained'>Confirm</Button>
                     </Grid>
                 </Box>
             </Box>

@@ -1,8 +1,10 @@
 ﻿using DLanguage.Data.Interface.Repositories;
 using DLanguage.Model.Entities.SubEntities;
 using DLanguage.Service.Interface.Services;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -14,10 +16,10 @@ namespace DLanguage.Service.Services
     {
         private readonly IStudentClassRepository studentClassRepository;
         private readonly SqlConnection _db;
-        public StudentClassService(IStudentClassRepository studentClassRepository)
+        public StudentClassService(IStudentClassRepository studentClassRepository, IConfiguration configuration)
         {
             this.studentClassRepository = studentClassRepository;
-            _db= new SqlConnection("Server=localhost;Database=learning_db;User Id=sa;Password=root;");
+            _db= new SqlConnection(configuration.GetConnectionString("LanguageAppCon"));
         }
         public async Task<bool> CreateRelation(int student_id, int course_id, DateOnly schedule, string invoice_id)
         {

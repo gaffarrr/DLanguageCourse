@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System;
+using System.Collections.Generic;
 
 namespace WebAPI.Controllers
 {
@@ -39,17 +40,17 @@ namespace WebAPI.Controllers
 
         [Route("Api/[controller]/Register")]
         [HttpPost]
-        public async Task<IActionResult> CreateStudent([FromBody] Student student)
+        public async Task<ActionResult> CreateStudent([FromBody] Student student)
         {
             var result = await studentService.CreateStudent(student);
             return Ok(result);
         }
         [Route("Api/[controller]/ResetPassword")]
         [HttpPost]
-        public async Task<IActionResult> GetPassword(string email)
+        public async Task<List<UserLogin>> GetEmail([FromBody] GetEmail email)
         {
-            var result = await studentService.GetPass(email);
-            return Ok(result);
+            List<UserLogin> result = await studentService.GetPass(email.email);
+            return result;
         }
         [Route("Api/[controller]/Login")]
         [HttpPost]

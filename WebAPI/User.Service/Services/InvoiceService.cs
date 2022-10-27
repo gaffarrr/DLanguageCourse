@@ -2,8 +2,10 @@
 using DLanguage.Model.Entities;
 using DLanguage.Model.Entities.SubEntities;
 using DLanguage.Service.Interface.Services;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection.PortableExecutable;
@@ -16,11 +18,11 @@ namespace DLanguage.Service.Services
         private readonly IInvoiceRepository invoiceRepository;
         private readonly IStudentClassRepository studentClassRepository;
         private readonly SqlConnection _db;
-        public InvoiceService(IInvoiceRepository invoiceRepository,IStudentClassRepository studentClassRepository)
+        public InvoiceService(IInvoiceRepository invoiceRepository,IStudentClassRepository studentClassRepository, IConfiguration configuration)
         {
             this.invoiceRepository = invoiceRepository;
             this.studentClassRepository = studentClassRepository;
-            _db = new SqlConnection("Server=localhost;Database=learning_db;User Id=sa;Password=root;");
+            _db = new SqlConnection(configuration.GetConnectionString("LanguageAppCon"));
         }
         public async Task<bool> CreateInvoice(string id, int student_id, DateOnly invoice_date, decimal total_price)
         {
